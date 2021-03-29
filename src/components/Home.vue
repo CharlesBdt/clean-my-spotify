@@ -1,13 +1,13 @@
 <template>
-  <div />
+  <div class="hello">
+    <button @click="logInUser()">
+      Log in to Spotify
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data() {
-    return {};
-  },
-  methods: {}
+  name: 'Home'
 };
 </script>

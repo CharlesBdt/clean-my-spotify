@@ -1,5 +1,5 @@
 <template>
   <div>
-    BONJOUR LES PLAYLISTS
+    PLAYLISTS
   </div>
 </template>

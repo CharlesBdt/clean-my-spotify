@@ -1,11 +1,17 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import store from '@/store';
-import Home from '@/components/Home.vue';
+import Login from '@/components/pages/Login.vue';
+import Home from '@/components/pages/Home.vue';
 import Playlists from '@/components/pages/Playlists.vue';
 
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -23,30 +29,28 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // If the user already auth, the access_token is in localStorage
-  if (localStorage.access_token) next();
-  // If not, check if the user is coming back from Spotify logging page, hash is in the URL
-  else if (to.hash) {
-    const stringAfterHash = to.hash.substring(1);
-    const paramsInHash = stringAfterHash.split('&');
+  // If not login page => check user auth
+  if (to.path !== '/') {
+    // If user is auth => access_token is in localStorage => go next
+    if (localStorage.access_token) next();
+    // If user is not auth => check if user is coming back from Spotify logging page (hash should be in the URL)
+    else if (to.hash) {
+      const stringAfterHash = to.hash.substring(1);
+      const paramsInHash = stringAfterHash.split('&');
 
-    // Spotify hash is composed of 3 key/value : access_token, token_type and expires_in
-    paramsInHash.forEach((e) => {
-      const [key, value] = e.split('=');
-      localStorage.setItem(key, value);
-    });
-  } else {
-    // Otherwise, redirect the user to the login page
-    const { spotify } = store.state;
-
-    window.location = `${spotify.spotify_authorize_endpoint}?client_id=${
-      spotify.client_id
-    }&redirect_uri=${
-      spotify.redirect_url_after_login
-    }&scope=${spotify.scopes.join(
-      spotify.scopes_separator
-    )}&response_type=token&show_dialog=true`;
-  }
+      // Spotify hash is composed of 3 key/value : access_token, token_type and expires_in
+      // Store them in localStorage
+      paramsInHash.forEach((e) => {
+        const [key, value] = e.split('=');
+        localStorage.setItem(key, value);
+      });
+    }
+    // If user not auth AND hash not in URL => redirect to login
+    else next('/');
+  } else if (to.path === '/' && localStorage.access_token)
+    // If user on login page BUT is already signed in => redirect to home page
+    next('/home');
+  else next();
 });
 
 export default router;

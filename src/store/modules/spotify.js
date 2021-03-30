@@ -1,6 +1,10 @@
 import { getField, updateField } from 'vuex-map-fields';
+import API from '@/api/crud';
+import URL from '@/api/config';
 
-const getDefaultState = () => ({});
+const getDefaultState = () => ({
+  playlists: []
+});
 
 const namespaced = true;
 
@@ -10,10 +14,19 @@ const getters = {
   getField
 };
 
-const actions = {};
+const actions = {
+  async getPlaylists({ commit }) {
+    const playlists = await API.get(URL.USER_PLAYLISTS);
+    commit('setPlaylists', playlists);
+  }
+};
 
 const mutations = {
-  updateField
+  updateField,
+
+  setPlaylists(state, payload) {
+    state.playlists = payload.data.items;
+  }
 };
 
 export default {

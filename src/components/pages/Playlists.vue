@@ -1,12 +1,17 @@
 <template>
   <div>
-    PLAYLISTS
-    <div
-      v-for="playlist in playlists"
-      :key="playlist.id"
-    >
-      {{ playlist.name }}
-    </div>
+    <h1>
+      PLAYLISTS
+    </h1>
+
+    <ul>
+      <li
+        v-for="playlist in playlists"
+        :key="playlist.id"
+      >
+        {{ playlist.name }}
+      </li>
+    </ul>
   </div>
 </template>
 

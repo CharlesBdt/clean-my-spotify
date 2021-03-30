@@ -25,11 +25,9 @@ const actions = {
   logInUser({ state }) {
     window.location = `${state.spotify_authorize_endpoint}?client_id=${
       state.client_id
-    }&redirect_uri=${
-      state.redirect_url_after_login
-    }&scope=${state.scopes.join(
+    }&redirect_uri=${state.redirect_url_after_login}&scope=${state.scopes.join(
       state.scopes_separator
-    )}&response_type=token&show_dialog=true`;
+    )}&response_type=token`;
   }
 };
 

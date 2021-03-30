@@ -1,11 +1,20 @@
 <template>
   <div>
-    Home page
+    <h1>HOME PAGE</h1>
+
+    <button @click="goToPlaylists">
+      Check my playlists
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  methods: {
+    goToPlaylists() {
+      this.$router.push({ path: '/playlists' });
+    }
+  }
 };
 </script>

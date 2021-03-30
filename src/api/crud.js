@@ -13,7 +13,7 @@ export default {
   async post(endpoint, data) {
     return axios
       .create()
-      .put(endpoint, data)
+      .post(endpoint, data)
       .then((response) => response);
   },
 
@@ -29,7 +29,7 @@ export default {
   async delete(endpoint, data) {
     return axios
       .create()
-      .put(endpoint, data)
+      .delete(endpoint, data)
       .then((response) => response);
   }
 };

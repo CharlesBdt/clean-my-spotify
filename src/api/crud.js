@@ -6,7 +6,8 @@ export default {
     return axios
       .create()
       .get(endpoint)
-      .then((response) => response);
+      .then((response) => response)
+      .catch((error) => error);
   },
 
   // Create
@@ -14,7 +15,8 @@ export default {
     return axios
       .create()
       .post(endpoint, data)
-      .then((response) => response);
+      .then((response) => response)
+      .catch((error) => error);
   },
 
   // Update
@@ -22,7 +24,8 @@ export default {
     return axios
       .create()
       .put(endpoint, data)
-      .then((response) => response);
+      .then((response) => response)
+      .catch((error) => error);
   },
 
   // Delete
@@ -30,6 +33,7 @@ export default {
     return axios
       .create()
       .delete(endpoint, data)
-      .then((response) => response);
+      .then((response) => response)
+      .catch((error) => error);
   }
 };

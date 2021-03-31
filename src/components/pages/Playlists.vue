@@ -4,36 +4,32 @@
       PLAYLISTS
     </h1>
 
-    <ul>
-      <li
-        v-for="playlist in playlists"
-        :key="playlist.id"
-      >
-        {{ playlist.name }}
-      </li>
-    </ul>
+    <PlaylistOverviewCard
+      v-for="playlist in playlists"
+      :key="playlist.id"
+      :playlist="playlist"
+    />
 
-    <button
-      v-if="previousPlaylists"
-      @click="getPlaylists('previous')"
-    >
-      Previous
-    </button>
-    <button
-      v-if="nextPlaylists"
-      @click="getPlaylists('next')"
-    >
-      Next
-    </button>
+    <Navigation
+      :previous="previousPlaylists"
+      :next="nextPlaylists"
+      @playlists-listing="getPlaylists"
+    />
   </div>
 </template>
 
 <script>
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
+import PlaylistOverviewCard from '@/components/cards/PlaylistOverviewCard.vue';
+import Navigation from '@/components/common/Navigation.vue';
 
 export default {
   name: 'Playlists',
+  components: {
+    PlaylistOverviewCard,
+    Navigation
+  },
   computed: {
     ...mapFields('spotify', ['playlists', 'nextPlaylists', 'previousPlaylists'])
   },

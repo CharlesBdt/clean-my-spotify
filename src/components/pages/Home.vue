@@ -2,7 +2,7 @@
   <div>
     <h1>HOME PAGE</h1>
 
-    <button @click="goToPlaylists">
+    <button @click="$router.push({ path: '/playlists' })">
       Check my playlists
     </button>
   </div>
@@ -10,11 +10,6 @@
 
 <script>
 export default {
-  name: 'Home',
-  methods: {
-    goToPlaylists() {
-      this.$router.push({ path: '/playlists' });
-    }
-  }
+  name: 'Home'
 };
 </script>

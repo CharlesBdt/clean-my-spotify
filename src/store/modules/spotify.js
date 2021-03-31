@@ -3,7 +3,9 @@ import API from '@/api/crud';
 import URL from '@/api/config';
 
 const getDefaultState = () => ({
-  playlists: []
+  playlists: [],
+  nextPlaylists: null,
+  previousPlaylists: null
 });
 
 const namespaced = true;
@@ -15,8 +17,20 @@ const getters = {
 };
 
 const actions = {
-  async getPlaylists({ commit }) {
-    const playlists = await API.get(URL.USER_PLAYLISTS);
+  async getPlaylists({ commit, state }, payload) {
+    // Default URL to get the user playlists
+    let urlUserPlaylists = URL.USER_PLAYLISTS;
+
+    // Dynamic URL to get user playlists
+    // Based on the button clicked
+    if (payload === 'next' && state.nextPlaylists) {
+      urlUserPlaylists = state.nextPlaylists;
+    }
+    if (payload === 'previous' && state.previousPlaylists) {
+      urlUserPlaylists = state.previousPlaylists;
+    }
+
+    const playlists = await API.get(urlUserPlaylists);
     commit('setPlaylists', playlists);
   }
 };
@@ -26,6 +40,8 @@ const mutations = {
 
   setPlaylists(state, payload) {
     state.playlists = payload.data.items;
+    state.nextPlaylists = payload.data.next;
+    state.previousPlaylists = payload.data.previous;
   }
 };
 

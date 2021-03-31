@@ -12,6 +12,19 @@
         {{ playlist.name }}
       </li>
     </ul>
+
+    <button
+      v-if="previousPlaylists"
+      @click="getPlaylists('previous')"
+    >
+      Previous
+    </button>
+    <button
+      v-if="nextPlaylists"
+      @click="getPlaylists('next')"
+    >
+      Next
+    </button>
   </div>
 </template>
 
@@ -22,7 +35,7 @@ import { mapActions } from 'vuex';
 export default {
   name: 'Playlists',
   computed: {
-    ...mapFields('spotify', ['playlists'])
+    ...mapFields('spotify', ['playlists', 'nextPlaylists', 'previousPlaylists'])
   },
   created() {
     this.getPlaylists();

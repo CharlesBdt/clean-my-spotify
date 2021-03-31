@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 import helpers from '@/plugins/helpers';
 import Login from '@/components/pages/Login.vue';
 import Home from '@/components/pages/Home.vue';
+import Playlist from '@/components/pages/Playlist.vue';
 import Playlists from '@/components/pages/Playlists.vue';
 
 const routes = [
@@ -12,12 +13,17 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
+    path: '/playlist/:playlistId',
+    name: 'playlist',
+    component: Playlist
+  },
+  {
     path: '/playlists',
-    name: 'Playlists',
+    name: 'playlists',
     component: Playlists
   }
 ];

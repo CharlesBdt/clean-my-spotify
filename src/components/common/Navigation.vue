@@ -1,16 +1,18 @@
 <template>
-  <button
-    v-if="previous"
-    @click="$emit('playlistsListing', 'previous')"
-  >
-    Previous
-  </button>
-  <button
-    v-if="next"
-    @click="$emit('playlistsListing', 'next')"
-  >
-    Next
-  </button>
+  <div>
+    <button
+      v-if="previous"
+      @click="$emit('listing', 'previous')"
+    >
+      Previous
+    </button>
+    <button
+      v-if="next"
+      @click="$emit('listing', 'next')"
+    >
+      Next
+    </button>
+  </div>
 </template>
 
 <script>
@@ -26,6 +28,6 @@ export default {
       default: null
     }
   },
-  emits: ['playlistsListing']
+  emits: ['listing']
 };
 </script>

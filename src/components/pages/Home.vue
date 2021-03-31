@@ -2,7 +2,7 @@
   <div>
     <h1>HOME PAGE</h1>
 
-    <button @click="$router.push({ path: '/playlists' })">
+    <button @click="$router.push({ name: 'playlists' })">
       Check my playlists
     </button>
   </div>

@@ -1,17 +1,27 @@
 <template>
-  <h3>Name : {{ playlist.name }}</h3>
+  <div>
+    <button
+      @click="
+        $router.push({ name: 'playlist', params: { playlistId: playlist.id } })
+      "
+    >
+      Detail
+    </button>
 
-  <img
-    :src="playlist.images[0].url"
-    width="50"
-    height="50"
-  >
+    <h3>Name : {{ playlist.name }}</h3>
 
-  <div v-if="playlist.description">
-    <b>Description :</b> <em>{{ playlist.description }}</em>
+    <img
+      :src="playlist.images[0].url"
+      width="50"
+      height="50"
+    >
+
+    <div v-if="playlist.description">
+      <b>Description :</b> <em>{{ playlist.description }}</em>
+    </div>
+
+    <hr>
   </div>
-
-  <hr>
 </template>
 
 <script>

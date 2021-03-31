@@ -13,7 +13,7 @@
     <Navigation
       :previous="previousPlaylists"
       :next="nextPlaylists"
-      @playlists-listing="getPlaylists"
+      @listing="getPlaylists"
     />
   </div>
 </template>

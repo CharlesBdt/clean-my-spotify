@@ -4,7 +4,7 @@
       PLAYLISTS
     </h1>
 
-    <PlaylistOverviewCard
+    <PlaylistCard
       v-for="playlist in playlists"
       :key="playlist.id"
       :playlist="playlist"
@@ -21,13 +21,13 @@
 <script>
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
-import PlaylistOverviewCard from '@/components/cards/PlaylistOverviewCard.vue';
+import PlaylistCard from '@/components/cards/PlaylistCard.vue';
 import Navigation from '@/components/common/Navigation.vue';
 
 export default {
   name: 'Playlists',
   components: {
-    PlaylistOverviewCard,
+    PlaylistCard,
     Navigation
   },
   computed: {

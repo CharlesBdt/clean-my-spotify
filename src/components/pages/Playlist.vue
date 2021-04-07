@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>Playlist : {{ playlist.name }}</h1>
+    <p>
+      <b>Name : {{ playlist.name }}</b> ({{ totalSongs }}) songs
+    </p>
+    <p>Created by : {{ playlistOwner }}</p>
 
-    <ul>
-      <li
-        v-for="track in tracks"
-        :key="track.id"
-      >
-        {{ track.track.name }}
-      </li>
-    </ul>
+    <TrackCard
+      v-for="track in tracks"
+      :key="track.track.id"
+      :track="track"
+    />
 
     <Navigation
       :previous="previousTracks"
@@ -22,11 +22,13 @@
 <script>
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
+import TrackCard from '@/components/cards/TrackCard.vue';
 import Navigation from '@/components/common/Navigation.vue';
 
 export default {
   name: 'Playlist',
   components: {
+    TrackCard,
     Navigation
   },
   computed: {
@@ -35,10 +37,22 @@ export default {
       'tracks',
       'nextTracks',
       'previousTracks'
-    ])
+    ]),
+
+    totalSongs() {
+      return this.playlist && this.playlist.tracks
+        ? this.playlist.tracks.total
+        : 0;
+    },
+
+    playlistOwner() {
+      return this.playlist && this.playlist.owner
+        ? this.playlist.owner.display_name
+        : 'N/A';
+    }
   },
-  created() {
-    this.getPlaylist(this.$route.params.playlistId);
+  async created() {
+    await this.getPlaylist(this.$route.params.playlistId);
   },
   methods: {
     ...mapActions({

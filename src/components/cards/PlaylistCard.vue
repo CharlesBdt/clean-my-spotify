@@ -8,7 +8,9 @@
       Detail
     </button>
 
-    <h3>Name : {{ playlist.name }}</h3>
+    <p>
+      <b>Name : {{ playlist.name }}</b> ({{ playlist.tracks.total }}) songs
+    </p>
 
     <img
       :src="playlist.images[0].url"

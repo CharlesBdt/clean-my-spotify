@@ -5,6 +5,16 @@
     </p>
     <p>Created by : {{ playlistOwner }}</p>
 
+    <p>Genres : </p>
+    <ul>
+      <li
+        v-for="genre in playlistGenres"
+        :key="genre"
+      >
+        {{ genre }}
+      </li>
+    </ul>
+
     <TrackCard
       v-for="track in tracks"
       :key="track.track.id"
@@ -36,7 +46,8 @@ export default {
       'playlist',
       'tracks',
       'nextTracks',
-      'previousTracks'
+      'previousTracks',
+      'playlistGenres'
     ]),
 
     totalSongs() {
@@ -51,14 +62,20 @@ export default {
         : 'N/A';
     }
   },
+  watch: {
+    playlist() {
+      if (this.playlist) this.getPlaylistGenres();
+    }
+  },
   async created() {
     await this.getPlaylist(this.$route.params.playlistId);
   },
   methods: {
     ...mapActions({
       getPlaylist: 'spotify/getPlaylist',
-      getTracks: 'spotify/getTracks'
-    })
+      getTracks: 'spotify/getTracks',
+      getPlaylistGenres: 'spotify/getPlaylistGenres'
+    }),
   }
 };
 </script>

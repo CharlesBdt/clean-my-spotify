@@ -25,5 +25,21 @@ export default {
 
     // Add a timestamp to auto delete the token after an hour
     localStorage.setItem('timestamp', moment().format());
+  },
+
+  chunkArray(inputArray, perChunk) {
+    let newArray = inputArray.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / perChunk);
+
+      if (!resultArray[chunkIndex]) {
+        // Start a new chunk
+        resultArray[chunkIndex] = [];
+      }
+      resultArray[chunkIndex].push(item);
+
+      return resultArray;
+    }, []);
+
+    return newArray;
   }
 };

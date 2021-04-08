@@ -1,4 +1,5 @@
 import { getField, updateField } from 'vuex-map-fields';
+import helpers from '@/plugins/helpers';
 import API from '@/api/crud';
 import URL from '@/api/config';
 
@@ -9,7 +10,8 @@ const getDefaultState = () => ({
   playlist: [],
   tracks: [],
   nextTracks: null,
-  previousTracks: null
+  previousTracks: null,
+  playlistGenres: []
 });
 
 const namespaced = true;
@@ -48,6 +50,8 @@ const actions = {
   async getTracks({ commit, state }, payload) {
     let tracksUrl = null;
 
+    // Dynamic URL to get playlist tracks
+    // Based on the button clicked
     if (payload === 'next' && state.nextTracks) {
       tracksUrl = state.nextTracks;
     }
@@ -57,6 +61,47 @@ const actions = {
 
     const tracks = await API.get(tracksUrl);
     commit('setTracks', tracks);
+  },
+
+  async getPlaylistGenres({ commit, state }) {
+    // Fetch all the tracks artists ID from the playlist
+    let artistIdArray = new Set();
+    state.tracks.forEach(t => {
+      t.track.artists.forEach(a => {
+        artistIdArray.add(a.id);
+      });
+    });
+
+    // Chunk artists ID array in multiple arrays
+    // Spotify API doesn't accept more than 49 IDs
+    let artistIdSubArrays = helpers.chunkArray(Array.from(artistIdArray), 49);
+
+
+    // Get artists info to Spotify API for each subArrays
+    let artistsInfoArray = [];
+
+    for (const artistIdSubArray of artistIdSubArrays) {
+      const artistsIdString = artistIdSubArray.join(',');
+      const artistsInfoUrl = `${URL.ARTISTS_INFO}?ids=${artistsIdString}`;
+
+      const artistsInfoSubArray = await API.get(artistsInfoUrl);
+      // Push API output to general array
+      artistsInfoArray.push(artistsInfoSubArray.data.artists);
+    };
+
+    // Process artists info to extract artists genres
+    const artistsInfo = artistsInfoArray.flat();
+    const playlistGenresArray = [];
+
+    artistsInfo.forEach(a => {
+      playlistGenresArray.push(a.genres);
+    });
+
+    // Clean duplicates
+    const playlistGenres = playlistGenresArray.flat();
+    let genres = new Set(playlistGenres);
+
+    commit('setPlaylistGenres', genres);
   }
 };
 
@@ -80,6 +125,10 @@ const mutations = {
     state.tracks = payload.data.items;
     state.nextTracks = payload.data.next;
     state.previousTracks = payload.data.previous;
+  },
+
+  setPlaylistGenres(state, payload) {
+    state.playlistGenres = payload;
   }
 };
 

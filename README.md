@@ -27,6 +27,21 @@ Follow Prettier extension's instructions to setup "format on save" for ease of u
 yarn lint
 ```
 
-### Customize configuration
+### Spotify Developer
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Connect your basic Spotify account in the [Developer Dashboard](https://developer.spotify.com/dashboard/applications)\
+Click to "Create an app"\
+When done, click on the created app
+
+Fill your .env file :
+
+```sh
+VUE_APP_CLIENT_ID
+# Client ID is found on the app homepage
+
+VUE_APP_REDIRECT_URL_AFTER_LOGIN
+# Redirect URL after login can be found under "Edit Settings" > "Redirect URIs"
+
+VUE_APP_SPOTIFY_AUTHORIZE_ENDPOINT
+# Spotify Authorize Endpoint is from the doc with value "https://accounts.spotify.com/authorize"
+```

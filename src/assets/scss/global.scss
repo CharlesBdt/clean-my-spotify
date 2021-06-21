@@ -1,0 +1,110 @@
+/*
+**
+** CONFIG
+**
+*/
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+/* COLORS */
+$green-color: #218f51;
+$white-color: #fff;
+$border-radius: 25px;
+$button-padding: 16px;
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* DEBUG */
+.debug-red {
+  border: solid 1px red;
+}
+
+.debug-blue {
+  border: solid 1px blue;
+}
+
+/* GRID */
+.wrapper {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  gap: 10px;
+}
+
+/*
+**
+** STYLE
+**
+*/
+
+/* BUTTON */
+@mixin button-ghost($color) {
+  border: 2px solid $color;
+
+  &:hover {
+    background-color: $color;
+    color: $white-color;
+  }
+
+  &:active {
+    background-color: darken($color, 10);
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.btn {
+  color: $green-color;
+  background-color: transparent;
+  outline: 0;
+  transition: background-color 0.6s ease-out, color 0.6s;
+}
+
+.btn-round {
+  border: 0;
+  @include border-radius($border-radius);
+}
+
+.btn-lg {
+  padding: $button-padding/1.5 $button-padding * 1.5 $button-padding/1.5
+    $button-padding * 1.5;
+  font-size: 1.2em;
+}
+
+.btn-md {
+  padding: $button-padding/2 $button-padding * 1.5 $button-padding/2
+    $button-padding * 1.5;
+  font-size: 1em;
+}
+
+.btn-sm {
+  padding: $button-padding/2.5 $button-padding * 1.5 $button-padding/2.5
+    $button-padding * 1.5;
+  font-size: 0.8em;
+}
+
+.btn-ghost-green {
+  @include button-ghost($green-color);
+}
+
+/* TEXT */
+.banner-title {
+  font-size: 60px;
+  color: $green-color;
+}
+
+.text-md {
+  font-size: 20px;
+}

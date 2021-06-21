@@ -1,7 +1,20 @@
 <template>
-  <button @click="logInUser()">
-    Log in to Spotify
-  </button>
+  <div class="wrapper homepage-area">
+    <div class="banner">
+      <p class="banner-title">
+        Clean my Spotify
+      </p>
+    </div>
+    <div class="login-box">
+      <p class="text-md pb-5">
+        Log in with your Spotify account to start the adventure
+      </p>
+      <button class="btn btn-round btn-lg btn-ghost-green" @click="logInUser()">
+        <fa icon="skiing" size="lg" />
+        <b class="pl-2">Take me in !</b>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -16,3 +29,24 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.homepage-area {
+  grid-template-areas:
+    'head head'
+    'main main';
+  grid-template-rows: 10vh auto;
+}
+
+.banner {
+  grid-area: head;
+  margin: auto;
+  text-align: center;
+}
+
+.login-box {
+  grid-area: main;
+  margin: auto;
+  text-align: center;
+}
+</style>

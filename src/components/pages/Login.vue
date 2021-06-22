@@ -2,16 +2,18 @@
   <div class="wrapper homepage-area">
     <div class="banner">
       <p class="banner-title">
-        Clean my Spotify
+        {{ $t.bannerTitle.en }}
       </p>
     </div>
     <div class="login-box">
       <p class="text-md pb-5">
-        Log in with your Spotify account to start the adventure
+        {{ $t.loginText.en }}
       </p>
       <button class="btn btn-round btn-lg btn-ghost-green" @click="logInUser()">
         <fa icon="skiing" size="lg" />
-        <b class="pl-2">Take me in !</b>
+        <b class="pl-2">
+          {{ $t.signInBtn.en }}
+        </b>
       </button>
     </div>
   </div>

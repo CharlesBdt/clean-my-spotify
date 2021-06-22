@@ -2,17 +2,17 @@
   <div class="wrapper homepage-area">
     <div class="banner">
       <p class="banner-title">
-        {{ $t.bannerTitle.en }}
+        {{ $t.bannerTitle }}
       </p>
     </div>
     <div class="login-box">
       <p class="text-md pb-5">
-        {{ $t.loginText.en }}
+        {{ $t.loginText }}
       </p>
       <button class="btn btn-round btn-lg btn-ghost-green" @click="logInUser()">
         <fa icon="skiing" size="lg" />
         <b class="pl-2">
-          {{ $t.signInBtn.en }}
+          {{ $t.signInBtn }}
         </b>
       </button>
     </div>

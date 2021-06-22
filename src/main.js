@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from '@/App.vue';
 import router from '@/router/router';
 import store from '@/store';
-import translation from '@/plugins/translation.js';
+import language from '@/plugins/translation.js';
 import '@/assets/scss/global.scss';
 import '@/assets/scss/spacing.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,7 +13,8 @@ library.add(faSkiing);
 
 const app = createApp(App);
 
-app.config.globalProperties.$t = translation;
+// Config language package for translation
+app.config.globalProperties.$t = language.en;
 
 app.use(store)
   .use(router)

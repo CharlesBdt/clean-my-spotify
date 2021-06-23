@@ -4,11 +4,13 @@
       PLAYLISTS
     </h1>
 
-    <PlaylistCard
-      v-for="playlist in playlists"
-      :key="playlist.id"
-      :playlist="playlist"
-    />
+    <div class="wrapper playlists-area">
+      <PlaylistCard
+        v-for="playlist in playlists"
+        :key="playlist.id"
+        :playlist="playlist"
+      />
+    </div>
 
     <Navigation
       :previous="previousPlaylists"
@@ -43,3 +45,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.playlists-area {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 280px;
+}
+
+</style>

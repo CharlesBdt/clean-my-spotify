@@ -10,6 +10,7 @@
 /* COLORS */
 $green-color: #218f51;
 $white-color: #fff;
+$black-color: #000;
 $border-radius: 25px;
 $button-padding: 16px;
 
@@ -35,6 +36,7 @@ $button-padding: 16px;
   display: grid;
   width: 100vw;
   height: 100vh;
+  max-width: 100%;
   gap: 10px;
 }
 
@@ -107,4 +109,16 @@ $button-padding: 16px;
 
 .text-md {
   font-size: 20px;
+}
+
+/* CARDS */
+.playlist-card {
+  cursor: pointer;
+  border-radius: 0 0 $border-radius $border-radius;
+  width: 200px;
+  height: 260px;
+  margin: auto;
+  text-align: center;
+  background-color: $green-color;
+  color: $white-color;
 }

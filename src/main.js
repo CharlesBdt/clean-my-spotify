@@ -7,10 +7,11 @@ import filters from '@/plugins/filters.js';
 import '@/assets/scss/global.scss';
 import '@/assets/scss/spacing.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSkiing } from '@fortawesome/free-solid-svg-icons';
+import { faSkiing, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faSkiing);
+// Manually load the icon used
+library.add(faSkiing, faExclamationTriangle);
 
 const app = createApp(App);
 

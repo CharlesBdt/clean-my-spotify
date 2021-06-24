@@ -6,7 +6,7 @@
       </p>
     </div>
     <div class="login-box">
-      <p class="text-md pb-5">
+      <p class="text-20 pb-5">
         {{ $t.loginText }}
       </p>
       <button class="btn btn-round btn-lg btn-ghost-green" @click="logInUser()">
@@ -38,12 +38,6 @@ export default {
     'head head'
     'main main';
   grid-template-rows: 10vh auto;
-}
-
-.banner {
-  grid-area: head;
-  margin: auto;
-  text-align: center;
 }
 
 .login-box {

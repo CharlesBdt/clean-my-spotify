@@ -9,7 +9,7 @@
       height="200"
     >
 
-    <div class="pa-1" style="text-align: center;">
+    <div class="pa-1">
       <p class="pb-1">
         <b>{{ $f.truncateText(playlist.name, 20) }}</b>
       </p>

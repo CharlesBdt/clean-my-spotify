@@ -40,6 +40,24 @@ $button-padding: 16px;
   gap: 10px;
 }
 
+.head-main-footer-area {
+  grid-template-areas:
+    'head'
+    'main'
+    'footer';
+}
+
+.banner {
+  grid-area: head;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-area {
+  grid-area: footer;
+  text-align: center;
+}
+
 /*
 **
 ** STYLE
@@ -68,6 +86,7 @@ $button-padding: 16px;
 }
 
 .btn {
+  cursor: pointer;
   color: $green-color;
   background-color: transparent;
   outline: 0;
@@ -107,7 +126,24 @@ $button-padding: 16px;
   color: $green-color;
 }
 
-.text-md {
+.header-text {
+  font-size: 20px;
+  color: $green-color;
+}
+
+.header-subtext {
+  font-size: 18px;
+}
+
+.text-14 {
+  font-size: 14px;
+}
+
+.text-18 {
+  font-size: 18px;
+}
+
+.text-20 {
   font-size: 20px;
 }
 
@@ -121,4 +157,12 @@ $button-padding: 16px;
   text-align: center;
   background-color: $green-color;
   color: $white-color;
+}
+
+.track-card {
+  border-radius: $border-radius;
+  width: 304px;
+  height: 160px;
+  margin: auto;
+  text-align: center;
 }

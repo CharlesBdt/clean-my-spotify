@@ -1,31 +1,30 @@
 <template>
-  <div>
-    <p>
-      <b>Name : {{ playlist.name }}</b> ({{ totalSongs }}) songs
-    </p>
-    <p>Created by : {{ playlistOwner }}</p>
+  <div class="wrapper head-main-footer-area">
+    <div class="banner">
+      <p class="header-text mt-5">
+        <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
+      </p>
+      <p class="header-subtext">
+        <em>{{ $t.createdBy }} {{ playlistOwner }}</em>
+      </p>
 
-    <p>Genres : </p>
-    <ul>
-      <li
-        v-for="genre in playlistGenres"
-        :key="genre"
-      >
-        {{ genre }}
-      </li>
-    </ul>
+      <p class="mt-4">
+        Genres :
+      </p>
+      {{ totalGenres }}
+    </div>
 
-    <TrackCard
-      v-for="track in tracks"
-      :key="track.track.id"
-      :track="track"
-    />
+    <div class="songs-area">
+      <TrackCard v-for="track in tracks" :key="track.track.id" :track="track" />
+    </div>
 
-    <Navigation
-      :previous="previousTracks"
-      :next="nextTracks"
-      @listing="getTracks"
-    />
+    <div class="footer-area">
+      <Navigation
+        :previous="previousTracks"
+        :next="nextTracks"
+        @listing="getTracks"
+      />
+    </div>
   </div>
 </template>
 
@@ -60,6 +59,10 @@ export default {
       return this.playlist && this.playlist.owner
         ? this.playlist.owner.display_name
         : 'N/A';
+    },
+
+    totalGenres() {
+      return [...this.playlistGenres].join(', ');
     }
   },
   watch: {
@@ -75,7 +78,16 @@ export default {
       getPlaylist: 'spotify/getPlaylist',
       getTracks: 'spotify/getTracks',
       getPlaylistGenres: 'spotify/getPlaylistGenres'
-    }),
+    })
   }
 };
 </script>
+
+<style lang="scss">
+.songs-area {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
+  grid-auto-rows: 180px;
+}
+</style>

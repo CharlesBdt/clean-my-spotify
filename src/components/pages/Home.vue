@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>HOME PAGE</h1>
+    <h1>{{ $t.homeTitle }}</h1>
 
     <button @click="$router.push({ name: 'playlists' })">
-      Check my playlists
+      {{ $t.accessPlaylistBtrn }}
     </button>
   </div>
 </template>

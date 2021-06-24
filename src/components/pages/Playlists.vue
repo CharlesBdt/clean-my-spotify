@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h1>
-      PLAYLISTS
-    </h1>
+  <div class="wrapper head-main-footer-area">
+    <div class="banner">
+      <p class="banner-title">
+        {{ $t.playlistsTitle }}
+      </p>
+    </div>
 
-    <div class="wrapper playlists-area">
+    <div class="playlist-cards-area">
       <PlaylistCard
         v-for="playlist in playlists"
         :key="playlist.id"
@@ -12,11 +14,13 @@
       />
     </div>
 
-    <Navigation
-      :previous="previousPlaylists"
-      :next="nextPlaylists"
-      @listing="getPlaylists"
-    />
+    <div class="footer-area">
+      <Navigation
+        :previous="previousPlaylists"
+        :next="nextPlaylists"
+        @listing="getPlaylists"
+      />
+    </div>
   </div>
 </template>
 
@@ -47,9 +51,10 @@ export default {
 </script>
 
 <style lang="scss">
-.playlists-area {
+.playlist-cards-area {
+  display: grid;
+  grid-area: main;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 280px;
 }
-
 </style>

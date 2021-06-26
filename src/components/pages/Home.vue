@@ -2,8 +2,11 @@
   <div>
     <h1>{{ $t.homeTitle }}</h1>
 
-    <button @click="$router.push({ name: 'playlists' })">
-      {{ $t.accessPlaylistBtrn }}
+    <button
+      class="btn btn-round btn-lg btn-ghost-green"
+      @click="$router.push({ name: 'playlists' })"
+    >
+      {{ $t.accessPlaylistsBtn }}
     </button>
   </div>
 </template>

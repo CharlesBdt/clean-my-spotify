@@ -1,9 +1,11 @@
 <template>
   <div class="wrapper head-main-footer-area">
-    <div class="banner">
-      <p class="banner-title">
-        {{ $t.playlistsTitle }}
-      </p>
+    <div class="header">
+      <Header :back-btn="homeRoute">
+        <p class="banner-title">
+          {{ $t.playlistsTitle }}
+        </p>
+      </Header>
     </div>
 
     <div class="playlist-cards-area">
@@ -28,13 +30,20 @@
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
 import PlaylistCard from '@/components/cards/PlaylistCard.vue';
+import Header from '@/components/common/Header.vue';
 import Navigation from '@/components/common/Navigation.vue';
 
 export default {
   name: 'Playlists',
   components: {
     PlaylistCard,
+    Header,
     Navigation
+  },
+  data() {
+    return {
+      homeRoute: 'home'
+    };
   },
   computed: {
     ...mapFields('spotify', ['playlists', 'nextPlaylists', 'previousPlaylists'])

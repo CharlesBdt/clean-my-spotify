@@ -18,6 +18,7 @@ export default {
     playlistsTitle: 'Playlists',
     // Navigation
     previousBtn: 'Previous',
-    nextBtn: 'Next'
+    nextBtn: 'Next',
+    backBtn: 'Back'
   }
 };

@@ -1,18 +1,16 @@
 <template>
   <div class="wrapper head-main-footer-area">
-    <div class="banner">
-      <p class="header-text mt-5">
-        <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
-      </p>
-      <p class="header-subtext">
-        <em>{{ $t.createdBy }} {{ playlistOwner }}</em>
-      </p>
-
-      <p class="mt-4">
-        Genres :
-      </p>
-      {{ totalGenres }}
+    <div class="header">
+      <Header :back-btn="playlistsRoute">
+        <div class="header-text mt-5">
+          <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
+        </div>
+        <p class="header-subtext">
+          <em>{{ $t.createdBy }} {{ playlistOwner }}</em>
+        </p>
+      </Header>
     </div>
+    <!-- <p class="mt-4"><b>Genres</b> {{ totalGenres }}</p> -->
 
     <div class="songs-area">
       <TrackCard v-for="track in tracks" :key="track.track.id" :track="track" />
@@ -32,13 +30,20 @@
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
 import TrackCard from '@/components/cards/TrackCard.vue';
+import Header from '@/components/common/Header.vue';
 import Navigation from '@/components/common/Navigation.vue';
 
 export default {
   name: 'Playlist',
   components: {
     TrackCard,
+    Header,
     Navigation
+  },
+  data() {
+    return {
+      playlistsRoute: 'playlists'
+    };
   },
   computed: {
     ...mapFields('spotify', [

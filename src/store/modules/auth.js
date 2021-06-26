@@ -1,4 +1,5 @@
 import { getField, updateField } from 'vuex-map-fields';
+import router from '@/router/router';
 
 const getDefaultState = () => ({
   client_id: process.env.VUE_APP_CLIENT_ID,
@@ -28,11 +29,28 @@ const actions = {
     }&redirect_uri=${state.redirect_url_after_login}&scope=${state.scopes.join(
       state.scopes_separator
     )}&response_type=token`;
+  },
+
+  logOutUser({ dispatch }) {
+    dispatch('spotify/resetState', {}, { root: true });
+    dispatch('user/resetState', {}, { root: true });
+    dispatch('auth/resetState', {}, { root: true });
+    localStorage.clear();
+
+    router.push({ name: 'login' });
+  },
+
+  resetState({ commit }) {
+    commit('resetState');
   }
 };
 
 const mutations = {
-  updateField
+  updateField,
+
+  resetState(currentState) {
+    Object.assign(currentState, getDefaultState());
+  }
 };
 
 export default {

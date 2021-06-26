@@ -66,8 +66,8 @@ const actions = {
   async getPlaylistGenres({ commit, state }) {
     // Fetch all the tracks artists ID from the playlist
     let artistIdArray = new Set();
-    state.tracks.forEach(t => {
-      t.track.artists.forEach(a => {
+    state.tracks.forEach((t) => {
+      t.track.artists.forEach((a) => {
         artistIdArray.add(a.id);
       });
     });
@@ -75,7 +75,6 @@ const actions = {
     // Chunk artists ID array in multiple arrays
     // Spotify API doesn't accept more than 49 IDs
     let artistIdSubArrays = helpers.chunkArray(Array.from(artistIdArray), 49);
-
 
     // Get artists info to Spotify API for each subArrays
     let artistsInfoArray = [];
@@ -87,13 +86,13 @@ const actions = {
       const artistsInfoSubArray = await API.get(artistsInfoUrl);
       // Push API output to general array
       artistsInfoArray.push(artistsInfoSubArray.data.artists);
-    };
+    }
 
     // Process artists info to extract artists genres
     const artistsInfo = artistsInfoArray.flat();
     const playlistGenresArray = [];
 
-    artistsInfo.forEach(a => {
+    artistsInfo.forEach((a) => {
       playlistGenresArray.push(a.genres);
     });
 
@@ -102,11 +101,19 @@ const actions = {
     let genres = new Set(playlistGenres);
 
     commit('setPlaylistGenres', genres);
+  },
+
+  resetState({ commit }) {
+    commit('resetState');
   }
 };
 
 const mutations = {
   updateField,
+
+  resetState(currentState) {
+    Object.assign(currentState, getDefaultState());
+  },
 
   setPlaylists(state, payload) {
     state.playlists = payload.data.items;

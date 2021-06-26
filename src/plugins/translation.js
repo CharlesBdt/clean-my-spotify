@@ -7,6 +7,7 @@ export default {
     signInBtn: 'Take me in !',
     //Home page
     homeTitle: 'Welcome',
+    logOutBtn: 'Log out',
     accessPlaylistsBtn: 'Check my playlists',
     // Songs
     songs: 'songs',

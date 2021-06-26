@@ -2,12 +2,14 @@
   <div class="wrapper head-main-footer-area">
     <div class="header">
       <Header :back-btn="playlistsRoute">
-        <div class="header-text mt-5">
-          <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
-        </div>
-        <p class="header-subtext">
-          <em>{{ $t.createdBy }} {{ playlistOwner }}</em>
-        </p>
+        <template #title>
+          <div class="header-text mt-5">
+            <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
+          </div>
+          <p class="header-subtext">
+            <em>{{ $t.createdBy }} {{ playlistOwner }}</em>
+          </p>
+        </template>
       </Header>
     </div>
     <!-- <p class="mt-4"><b>Genres</b> {{ totalGenres }}</p> -->

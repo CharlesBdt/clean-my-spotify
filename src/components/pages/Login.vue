@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper homepage-area">
+  <div class="wrapper login-area">
     <div class="banner">
       <p class="banner-title">
         {{ $t.bannerTitle }}
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-.homepage-area {
+.login-area {
   grid-template-areas:
     'head head'
     'main main';

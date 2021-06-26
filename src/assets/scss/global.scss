@@ -11,6 +11,7 @@
 $green-color: #218f51;
 $white-color: #fff;
 $black-color: #000;
+$red-color: #b64646;
 $border-radius: 25px;
 $button-padding: 16px;
 
@@ -100,7 +101,6 @@ $button-padding: 16px;
 
 .btn {
   cursor: pointer;
-  color: $green-color;
   background-color: transparent;
   outline: 0;
   transition: background-color 0.6s ease-out, color 0.6s;
@@ -112,30 +112,36 @@ $button-padding: 16px;
 }
 
 .btn-lg {
-  padding: $button-padding/1.5 $button-padding * 1.5 $button-padding/1.5
-    $button-padding * 1.5;
+  padding: $button-padding/1.5 $button-padding $button-padding/1.5
+    $button-padding;
   font-size: 1.2em;
 }
 
 .btn-md {
-  padding: $button-padding/2 $button-padding * 1.5 $button-padding/2
-    $button-padding * 1.5;
+  padding: $button-padding/2 $button-padding $button-padding/2
+    $button-padding;
   font-size: 1em;
 }
 
 .btn-sm {
-  padding: $button-padding/2.5 $button-padding * 1.5 $button-padding/2.5
-    $button-padding * 1.5;
+  padding: $button-padding/2.5 $button-padding $button-padding/2.5
+    $button-padding;
   font-size: 0.8em;
 }
 
 .btn-ghost-green {
   @include button-ghost($green-color);
+  color: $green-color;
+}
+
+.btn-ghost-red {
+  @include button-ghost($red-color);
+  color: $red-color;
 }
 
 /* TEXT */
 .banner-title {
-  font-size: 60px;
+  font-size: 30px;
   color: $green-color;
 }
 

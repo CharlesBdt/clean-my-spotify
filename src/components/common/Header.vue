@@ -1,23 +1,27 @@
 <template>
   <div class="mt-5">
-    <fa
-      class="clickable"
-      icon="music"
-      size="lg"
-      color="#218f51"
-      @click="$router.push({ name: homeRoute })"
-    />
+    <slot name="home">
+      <fa
+        class="clickable"
+        icon="music"
+        size="lg"
+        color="#218f51"
+        @click="$router.push({ name: homeRoute })"
+      />
+    </slot>
   </div>
-  <div>
-    <slot />
+  <div class="mt-3">
+    <slot name="title" />
   </div>
   <div class="mt-5">
-    <button
-      class="btn btn-round btn-sm btn-ghost-green"
-      @click="$router.push({ name: backBtn })"
-    >
-      {{ $t.backBtn }}
-    </button>
+    <slot name="button">
+      <button
+        class="btn btn-round btn-sm btn-ghost-green"
+        @click="$router.push({ name: backBtn })"
+      >
+        {{ $t.backBtn }}
+      </button>
+    </slot>
   </div>
 </template>
 

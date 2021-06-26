@@ -2,9 +2,11 @@
   <div class="wrapper head-main-footer-area">
     <div class="header">
       <Header :back-btn="homeRoute">
-        <p class="banner-title">
-          {{ $t.playlistsTitle }}
-        </p>
+        <template #title>
+          <p class="banner-title">
+            {{ $t.playlistsTitle }}
+          </p>
+        </template>
       </Header>
     </div>
 

@@ -8,7 +8,7 @@ import Playlists from '@/components/pages/Playlists.vue';
 const routes = [
   {
     path: '/',
-    name: 'Login',
+    name: 'login',
     component: Login
   },
   {

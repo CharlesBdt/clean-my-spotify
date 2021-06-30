@@ -1,4 +1,4 @@
-# clean-my-spotify
+# Spotify Adventure
 
 ## Project setup
 

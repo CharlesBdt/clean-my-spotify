@@ -18,6 +18,10 @@ yarn serve
 yarn build
 ```
 
+## Live demo
+
+Visit [Spotify Adventure](https://nodbproject.web.app/)
+
 ## Lints and fixes files
 
 To use formatting on VS Code please install these plugins : [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).\

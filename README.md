@@ -20,7 +20,7 @@ yarn build
 
 ## Live demo
 
-Visit [Spotify Adventure](https://nodbproject.web.app/)
+Visit [Spotify Adventure](https://spotify-adventure.web.app/)
 
 ## Lints and fixes files
 
@@ -39,7 +39,7 @@ Connect your Spotify account in the [Developer Dashboard](https://developer.spot
 Click to "Create an app"\
 When done, click on the created app
 
-Fill your .env file :
+Fill your .env.development.local file :
 
 ```sh
 VUE_APP_CLIENT_ID
@@ -50,6 +50,21 @@ VUE_APP_REDIRECT_URL_AFTER_LOGIN
 
 VUE_APP_SPOTIFY_AUTHORIZE_ENDPOINT
 # Spotify Authorize Endpoint is from the doc with value "https://accounts.spotify.com/authorize"
+```
+
+## Firebase Hosting
+
+Create your .env.production.local file for hosting with same content as above.
+
+Then prepare for production [here](#compiles-and-minifies-for-production)
+
+When done, run these commands :
+
+```sh
+yarn add -g firebase-tools
+firebase login
+firebase init
+firebase deploy
 ```
 
 ## Naming convention

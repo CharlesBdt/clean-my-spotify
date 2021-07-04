@@ -1,12 +1,10 @@
 .DS_Store
 node_modules
 /dist
-.github
 .firebase
 
 # local env files
 .env
-.env.local
 .env.*.local
 
 # Log files

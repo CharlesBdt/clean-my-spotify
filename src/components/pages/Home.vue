@@ -25,6 +25,12 @@
       >
         {{ $t.accessPlaylistsBtn }}
       </button>
+      <UserTopTracks
+        :top-tracks="currentTopTracks"
+      />
+      <UserTopArtists
+        :top-artists="currentTopArtists"
+      />
     </div>
   </div>
 </template>
@@ -33,21 +39,28 @@
 import { mapFields } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
+import UserTopTracks from '@/components/cards/UserTopTracks.vue';
+import UserTopArtists from '@/components/cards/UserTopArtists.vue';
 
 export default {
   name: 'Home',
   components: {
-    Header
+    Header,
+    UserTopTracks,
+    UserTopArtists
   },
   computed: {
-    ...mapFields('user', ['currentUser'])
+    ...mapFields('user', ['currentUser', 'currentTopArtists', 'currentTopTracks'])
   },
   created() {
     this.getCurrentUser();
+    this.getUserTopItems('artists');
+    this.getUserTopItems('tracks');
   },
   methods: {
     ...mapActions({
       getCurrentUser: 'user/getCurrentUser',
+      getUserTopItems: 'user/getUserTopItems',
       logOutUser: 'auth/logOutUser'
     })
   }

@@ -3,7 +3,9 @@ import API from '@/api/crud';
 import URL from '@/api/config';
 
 const getDefaultState = () => ({
-  currentUser: []
+  currentUser: [],
+  currentTopArtists: [],
+  currentTopTracks: []
 });
 
 const namespaced = true;
@@ -23,6 +25,18 @@ const actions = {
     commit('setCurrentUser', currentUser);
   },
 
+  async getUserTopItems({ commit }, payload) {
+    let userTopItemsUrl = `${URL.USER_TOP_ITEMS}${payload}`;
+
+    const userTopItems = await API.get(userTopItemsUrl);
+
+    // Uppercase the first letter of the string to get
+    // either Artists or Tracks
+    const type = `${payload.charAt(0).toUpperCase()}${payload.slice(1)}`;
+
+    commit('setUserTopItems', [userTopItems, type]);
+  },
+
   resetState({ commit }) {
     commit('resetState');
   }
@@ -37,6 +51,14 @@ const mutations = {
 
   setCurrentUser(state, payload) {
     state.currentUser = payload.data;
+  },
+
+  setUserTopItems(state, payload) {
+    // Dynamically create the state variable
+    // either currentTopArtists or currentTopTracks
+    const stateVariable = `currentTop${payload[1]}`;
+
+    state[stateVariable] = payload[0].data;
   }
 };
 

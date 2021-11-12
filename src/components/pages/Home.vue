@@ -31,6 +31,9 @@
       <UserTopArtists
         :top-artists="currentTopArtists"
       />
+      <NewReleasesAlbums
+        :new-albums="newAlbums"
+      />
     </div>
   </div>
 </template>
@@ -41,26 +44,31 @@ import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
 import UserTopTracks from '@/components/cards/UserTopTracks.vue';
 import UserTopArtists from '@/components/cards/UserTopArtists.vue';
+import NewReleasesAlbums from '@/components/cards/NewReleasesAlbums.vue';
 
 export default {
   name: 'Home',
   components: {
     Header,
     UserTopTracks,
-    UserTopArtists
+    UserTopArtists,
+    NewReleasesAlbums
   },
   computed: {
-    ...mapFields('user', ['currentUser', 'currentTopArtists', 'currentTopTracks'])
+    ...mapFields('user', ['currentUser', 'currentTopArtists', 'currentTopTracks']),
+    ...mapFields('album', ['newAlbums'])
   },
   created() {
     this.getCurrentUser();
     this.getUserTopItems('artists');
     this.getUserTopItems('tracks');
+    this.getNewReleases();
   },
   methods: {
     ...mapActions({
       getCurrentUser: 'user/getCurrentUser',
       getUserTopItems: 'user/getUserTopItems',
+      getNewReleases: 'album/getNewReleases',
       logOutUser: 'auth/logOutUser'
     })
   }

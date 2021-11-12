@@ -4,7 +4,7 @@
       :src="album.images[0].url"
       width="50"
       height="50"
-    >
+    ><br>
     ALBUM: {{ album.name }} <br>
     ALBUM RELEASE : {{ album.release_date }} <br>
     ARTIST:

@@ -1,10 +1,10 @@
 <template>
-  <div v-for="artist in topArtists.items" :key="artist.id">
+  <div v-for="artist in topArtists" :key="artist.id">
     <img
       :src="artist.images[0].url"
       width="50"
       height="50"
-    >
+    ><br>
     ARTISTS: {{ artist.name }} <br>
     FOLLOWERS : {{ artist.followers.total }} <br>
     POPULARITY: {{ artist.popularity }}<br>

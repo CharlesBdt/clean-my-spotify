@@ -18,21 +18,24 @@
       </Header>
     </div>
 
-    <div class="home-area">
+    <div class="main-area">
       <button
         class="btn btn-round btn-lg btn-ghost-green"
         @click="$router.push({ name: 'playlists' })"
       >
         {{ $t.accessPlaylistsBtn }}
       </button>
+    </div>
+
+    <div class="list-area">
       <UserTopTracks
-        :top-tracks="currentTopTracks"
+        :top-tracks="currentTopTracks.items.slice(0, 5)"
       />
       <UserTopArtists
-        :top-artists="currentTopArtists"
+        :top-artists="currentTopArtists.items.slice(0, 5)"
       />
       <NewReleasesAlbums
-        :new-albums="newAlbums"
+        :new-albums="newAlbums.slice(0, 5)"
       />
     </div>
   </div>
@@ -78,14 +81,23 @@ export default {
 <style lang="scss">
 .homepage-area {
   grid-template-areas:
-    'head head'
-    'main main';
+    'head head head'
+    'main main main'
+    'list list list';
   grid-template-rows: 10vh auto;
 }
 
-.home-area {
+.main-area {
   grid-area: main;
   margin: auto;
   text-align: center;
+}
+
+.list-area {
+  grid-area: list;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

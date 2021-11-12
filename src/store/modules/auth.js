@@ -33,7 +33,7 @@ const actions = {
   },
 
   logOutUser({ dispatch }) {
-    dispatch('spotify/resetState', {}, { root: true });
+    dispatch('playlist/resetState', {}, { root: true });
     dispatch('user/resetState', {}, { root: true });
     dispatch('auth/resetState', {}, { root: true });
     localStorage.clear();

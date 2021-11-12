@@ -48,14 +48,14 @@ export default {
     };
   },
   computed: {
-    ...mapFields('spotify', ['playlists', 'nextPlaylists', 'previousPlaylists'])
+    ...mapFields('playlist', ['playlists', 'nextPlaylists', 'previousPlaylists'])
   },
   created() {
     this.getPlaylists();
   },
   methods: {
     ...mapActions({
-      getPlaylists: 'spotify/getPlaylists'
+      getPlaylists: 'playlist/getPlaylists'
     })
   }
 };

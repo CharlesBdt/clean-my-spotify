@@ -1,13 +1,13 @@
 import { createStore } from 'vuex';
 
 import auth from '@/store/modules/auth';
-import spotify from '@/store/modules/spotify';
+import playlist from '@/store/modules/playlist';
 import user from '@/store/modules/user';
 
 const store = createStore({
   modules: {
     auth,
-    spotify,
+    playlist,
     user
   }
 });

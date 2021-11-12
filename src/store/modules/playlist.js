@@ -8,10 +8,10 @@ const getDefaultState = () => ({
   nextPlaylists: null,
   previousPlaylists: null,
   playlist: [],
+  playlistGenres: [],
   tracks: [],
   nextTracks: null,
-  previousTracks: null,
-  playlistGenres: []
+  previousTracks: null
 });
 
 const namespaced = true;

@@ -48,12 +48,12 @@ export default {
     };
   },
   computed: {
-    ...mapFields('spotify', [
+    ...mapFields('playlist', [
       'playlist',
+      'playlistGenres',
       'tracks',
       'nextTracks',
       'previousTracks',
-      'playlistGenres'
     ]),
 
     totalSongs() {
@@ -82,9 +82,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      getPlaylist: 'spotify/getPlaylist',
-      getTracks: 'spotify/getTracks',
-      getPlaylistGenres: 'spotify/getPlaylistGenres'
+      getPlaylist: 'playlist/getPlaylist',
+      getTracks: 'playlist/getTracks',
+      getPlaylistGenres: 'playlist/getPlaylistGenres'
     })
   }
 };

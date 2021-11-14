@@ -28,38 +28,42 @@
     </div>
 
     <div class="list-area">
-      <UserTopTracks
-        :top-tracks="currentTopTracks.items.slice(0, 5)"
+      <UserTopTracksCard
+        :top-tracks="currentTopTracks"
       />
-      <UserTopArtists
-        :top-artists="currentTopArtists.items.slice(0, 5)"
+      <UserTopArtistsCard
+        :top-artists="currentTopArtists"
       />
-      <NewReleasesAlbums
-        :new-albums="newAlbums.slice(0, 5)"
+      <NewReleasesAlbumsCard
+        :new-albums="newAlbums"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { mapFields } from 'vuex-map-fields';
+import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
-import UserTopTracks from '@/components/cards/UserTopTracks.vue';
-import UserTopArtists from '@/components/cards/UserTopArtists.vue';
-import NewReleasesAlbums from '@/components/cards/NewReleasesAlbums.vue';
+import UserTopTracksCard from '@/components/cards/UserTopTracksCard.vue';
+import UserTopArtistsCard from '@/components/cards/UserTopArtistsCard.vue';
+import NewReleasesAlbumsCard from '@/components/cards/NewReleasesAlbumsCard.vue';
 
 export default {
   name: 'Home',
   components: {
     Header,
-    UserTopTracks,
-    UserTopArtists,
-    NewReleasesAlbums
+    UserTopTracksCard,
+    UserTopArtistsCard,
+    NewReleasesAlbumsCard
   },
   computed: {
-    ...mapFields('user', ['currentUser', 'currentTopArtists', 'currentTopTracks']),
-    ...mapFields('album', ['newAlbums'])
+    ...mapState({
+      newAlbums: (state) => state.album.newAlbums,
+      currentUser: (state) => state.user.currentUser,
+      currentTopTracks: (state) => state.user.currentTopTracks,
+      currentTopArtists: (state) => state.user.currentTopArtists
+    }),
   },
   created() {
     this.getCurrentUser();

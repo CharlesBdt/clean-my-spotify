@@ -1,5 +1,5 @@
 <template>
-  <div v-for="album in newAlbums" :key="album.id">
+  <div v-for="album in newFiveAlbums" :key="album.id">
     <img
       :src="album.images[0].url"
       width="50"
@@ -18,11 +18,16 @@
 
 <script>
 export default {
-  name: 'NewReleasesAlbums',
+  name: 'NewReleasesAlbumsCard',
   props: {
     newAlbums: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    newFiveAlbums() {
+      return this.newAlbums.slice(0, 5);
     }
   }
 };

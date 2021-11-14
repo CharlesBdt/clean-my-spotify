@@ -1,5 +1,5 @@
 <template>
-  <div v-for="track in topTracks" :key="track.id">
+  <div v-for="track in topFiveTracks" :key="track.id">
     <img
       :src="track.album.images[0].url"
       width="50"
@@ -19,11 +19,16 @@
 
 <script>
 export default {
-  name: 'UserTopTracks',
+  name: 'UserTopTracksCard',
   props: {
     topTracks: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    topFiveTracks() {
+      return this.topTracks.items ? this.topTracks.items.slice(0, 5) : [];
     }
   }
 };

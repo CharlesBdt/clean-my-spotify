@@ -1,5 +1,5 @@
 <template>
-  <div v-for="artist in topArtists" :key="artist.id">
+  <div v-for="artist in topFiveArtists" :key="artist.id">
     <img
       :src="artist.images[0].url"
       width="50"
@@ -23,11 +23,16 @@
 
 <script>
 export default {
-  name: 'UserTopArtists',
+  name: 'UserTopArtistsCard',
   props: {
     topArtists: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    topFiveArtists() {
+      return this.topArtists.items ? this.topArtists.items.slice(0, 5) : [];
     }
   }
 };

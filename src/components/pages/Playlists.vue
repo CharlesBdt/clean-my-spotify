@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapFields } from 'vuex-map-fields';
+import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import PlaylistCard from '@/components/cards/PlaylistCard.vue';
 import Header from '@/components/common/Header.vue';
@@ -48,7 +48,11 @@ export default {
     };
   },
   computed: {
-    ...mapFields('playlist', ['playlists', 'nextPlaylists', 'previousPlaylists'])
+    ...mapState({
+      playlists: (state) => state.playlist.playlists,
+      nextPlaylists: (state) => state.playlist.nextPlaylists,
+      previousPlaylists: (state) => state.playlist.previousPlaylists
+    })
   },
   created() {
     this.getPlaylists();

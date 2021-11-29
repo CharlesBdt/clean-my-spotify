@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper homepage-area">
-    <div class="header">
+  <div class="wrapper grid-homepage">
+    <div class="header-area">
       <Header>
         <template #title>
           <p class="banner-title">
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style lang="scss">
-.homepage-area {
+.grid-homepage {
   grid-template-areas:
     'head head head'
     'main main main'
@@ -99,9 +99,10 @@ export default {
 
 .list-area {
   grid-area: list;
-  display: grid;
+  display: inline-block;
+  text-align: center;
   grid-auto-flow: column;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

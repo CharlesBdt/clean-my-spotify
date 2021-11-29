@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper head-main-footer-area">
-    <div class="header">
+  <div class="wrapper grid-head-main-footer-area">
+    <div class="header-area">
       <Header :back-btn="playlistsRoute">
         <template #title>
           <div class="header-text mt-5">

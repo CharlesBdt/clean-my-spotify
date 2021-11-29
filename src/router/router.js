@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import helpers from '@/plugins/helpers';
+import { isTokenExpired, setTokenToLocalStorage } from '@/plugins/helper';
 import Login from '@/components/pages/Login.vue';
 import Home from '@/components/pages/Home.vue';
 import Playlist from '@/components/pages/Playlist.vue';
@@ -36,7 +36,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // Check has expired (1 hour length)
-  helpers.isTokenExpired();
+  isTokenExpired();
 
   // If not login page => check user auth
   if (to.path !== '/') {
@@ -45,7 +45,7 @@ router.beforeEach((to, from, next) => {
     // If user is not auth => check if user is coming back from Spotify logging page (hash should be in the URL)
     else if (to.hash) {
       // Set Spotify token info into local storage
-      helpers.setTokenToLocalStorage(to.hash);
+      setTokenToLocalStorage(to.hash);
       next('/home');
     }
     // If user not auth AND hash not in URL => redirect to login

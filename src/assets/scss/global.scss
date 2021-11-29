@@ -41,20 +41,25 @@ $button-padding: 16px;
   gap: 10px;
 }
 
-.head-main-footer-area {
+.grid-head-main-footer-area {
   grid-template-areas:
     'head'
     'main'
     'footer';
 }
 
-.banner {
+.grid-picture-text {
+  display: flex;
+  align-items: center;
+}
+
+.banner-area {
   grid-area: head;
   margin: auto;
   text-align: center;
 }
 
-.header {
+.header-area {
   grid-area: head;
   display: grid;
   grid-template-columns: 100px 1fr 100px;
@@ -184,4 +189,10 @@ $button-padding: 16px;
   height: 160px;
   margin: auto;
   text-align: center;
+}
+
+.top-list-card {
+  border-radius: $border-radius;
+  border: 2px solid $green-color;
+  display: inline-block;
 }

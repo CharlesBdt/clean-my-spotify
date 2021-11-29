@@ -1,23 +1,28 @@
 <template>
-  <div v-for="track in topFiveTracks" :key="track.id">
-    <img
-      :src="track.album.images[0].url"
-      width="50"
-      height="50"
-    ><br>
-    SONG: {{ track.name }}<br>
-    ALBUM: {{ track.album.name }} <br>
-    ALBUM RELEASE : {{ track.album.release_date }} <br>
-    ARTIST:
-    <div v-for="artist in track.artists" :key="artist.id">
-      {{ artist.name }}
+  <div class="top-list-card">
+    <div v-for="track in topFiveTracks" :key="track.id">
+      <div class="grid-picture-text">
+        <div class="picture-area">
+          <img
+            :src="track.album.images[0].url"
+            width="50"
+            height="50"
+          >
+        </div>
+        <div class="text-area">
+          SONG: {{ track.name }} <br />
+          ALBUM: {{ track.album.name }}<br />
+          ALBUM RELEASE : {{ track.album.release_date }}<br />
+          ARTIST: {{ getArtistsString(track.artists) }}
+        </div>
+      </div>
     </div>
-    <br>
-    <br>
   </div>
 </template>
 
 <script>
+import { getArtistsString } from '@/plugins/helper';
+
 export default {
   name: 'UserTopTracksCard',
   props: {
@@ -29,7 +34,14 @@ export default {
   computed: {
     topFiveTracks() {
       return this.topTracks.items ? this.topTracks.items.slice(0, 5) : [];
-    }
+    },
+  },
+  methods: {
+    getArtistsString
   }
 };
 </script>
+
+<style lang="scss">
+
+</style>

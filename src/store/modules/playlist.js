@@ -1,5 +1,5 @@
 import { getField, updateField } from 'vuex-map-fields';
-import helpers from '@/plugins/helpers';
+import { chunkArray } from '@/plugins/helper';
 import API from '@/api/crud';
 import URL from '@/api/config';
 
@@ -74,7 +74,7 @@ const actions = {
 
     // Chunk artists ID array in multiple arrays
     // Spotify API doesn't accept more than 49 IDs
-    let artistIdSubArrays = helpers.chunkArray(Array.from(artistIdArray), 49);
+    let artistIdSubArrays = chunkArray(Array.from(artistIdArray), 49);
 
     // Get artists info to Spotify API for each subArrays
     let artistsInfoArray = [];

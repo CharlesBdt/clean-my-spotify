@@ -1,7 +1,7 @@
 <template>
   <div class="top-list-card">
     <div v-for="track in topFiveTracks" :key="track.id">
-      <div class="grid-picture-text">
+      <div class="inline-picture-text">
         <div class="picture-area">
           <img
             :src="track.album.images[0].url"
@@ -41,7 +41,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-
-</style>

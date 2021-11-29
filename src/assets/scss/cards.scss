@@ -1,0 +1,32 @@
+@import 'global.scss';
+
+/*
+**
+** CARDS
+**
+*/
+
+.playlist-card {
+  cursor: pointer;
+  border-radius: 0 0 $border-radius $border-radius;
+  width: 200px;
+  height: 260px;
+  margin: auto;
+  text-align: center;
+  background-color: $green-color;
+  color: $white-color;
+}
+
+.track-card {
+  border-radius: $border-radius;
+  width: 304px;
+  height: 160px;
+  margin: auto;
+  text-align: center;
+}
+
+.top-list-card {
+  border-radius: $border-radius;
+  border: 2px solid $green-color;
+  display: inline-block;
+}

@@ -1,0 +1,99 @@
+/*
+**
+** GRID
+**
+*/
+
+.wrapper {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  gap: 10px;
+}
+
+/* Grid template */
+
+.grid-login {
+  grid-template-areas:
+    'head head'
+    'main main';
+  grid-template-rows: 10vh auto;
+}
+
+.grid-homepage {
+  grid-template-areas:
+    'head head head'
+    'main main main'
+    'list list list';
+  grid-template-rows: 10vh auto;
+}
+
+.grid-page {
+  grid-template-areas:
+    'head'
+    'main'
+    'footer';
+}
+
+/* Head area */
+
+.banner-area {
+  grid-area: head;
+  margin: auto;
+  text-align: center;
+}
+
+.header-area {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-column-gap: 5px;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Main area */
+
+.main-area {
+  grid-area: main;
+  margin: auto;
+  text-align: center;
+}
+
+.songs-area {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
+  grid-auto-rows: 180px;
+}
+
+.playlist-cards-area {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 280px;
+}
+
+/* Footer area */
+
+.footer-area {
+  grid-area: footer;
+  text-align: center;
+}
+
+/* Diverse area */
+
+.list-area {
+  grid-area: list;
+  display: inline-block;
+  text-align: center;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.inline-picture-text {
+  display: flex;
+  align-items: center;
+}

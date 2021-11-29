@@ -1,7 +1,7 @@
 <template>
   <div class="top-list-card">
     <div v-for="album in newFiveAlbums" :key="album.id">
-      <div class="grid-picture-text">
+      <div class="inline-picture-text">
         <div class="picture-area">
           <img
             :src="album.images[0].url"

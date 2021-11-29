@@ -81,28 +81,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.grid-homepage {
-  grid-template-areas:
-    'head head head'
-    'main main main'
-    'list list list';
-  grid-template-rows: 10vh auto;
-}
-
-.main-area {
-  grid-area: main;
-  margin: auto;
-  text-align: center;
-}
-
-.list-area {
-  grid-area: list;
-  display: inline-block;
-  text-align: center;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: 1fr 1fr 1fr;
-}
-</style>

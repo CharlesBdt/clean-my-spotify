@@ -1,7 +1,7 @@
 <template>
   <div class="top-list-card">
     <div v-for="artist in topFiveArtists" :key="artist.id">
-      <div class="grid-picture-text">
+      <div class="inline-picture-text">
         <div class="picture-area">
           <img
             :src="artist.images[0].url"

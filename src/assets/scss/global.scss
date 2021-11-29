@@ -32,47 +32,6 @@ $button-padding: 16px;
   border: solid 1px blue;
 }
 
-/* GRID */
-.wrapper {
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  max-width: 100%;
-  gap: 10px;
-}
-
-.grid-head-main-footer-area {
-  grid-template-areas:
-    'head'
-    'main'
-    'footer';
-}
-
-.grid-picture-text {
-  display: flex;
-  align-items: center;
-}
-
-.banner-area {
-  grid-area: head;
-  margin: auto;
-  text-align: center;
-}
-
-.header-area {
-  grid-area: head;
-  display: grid;
-  grid-template-columns: 100px 1fr 100px;
-  grid-column-gap: 5px;
-  justify-items: center;
-  text-align: center;
-}
-
-.footer-area {
-  grid-area: footer;
-  text-align: center;
-}
-
 /*
 **
 ** STYLE
@@ -169,30 +128,4 @@ $button-padding: 16px;
 
 .text-20 {
   font-size: 20px;
-}
-
-/* CARDS */
-.playlist-card {
-  cursor: pointer;
-  border-radius: 0 0 $border-radius $border-radius;
-  width: 200px;
-  height: 260px;
-  margin: auto;
-  text-align: center;
-  background-color: $green-color;
-  color: $white-color;
-}
-
-.track-card {
-  border-radius: $border-radius;
-  width: 304px;
-  height: 160px;
-  margin: auto;
-  text-align: center;
-}
-
-.top-list-card {
-  border-radius: $border-radius;
-  border: 2px solid $green-color;
-  display: inline-block;
 }

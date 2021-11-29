@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper grid-head-main-footer-area">
+  <div class="wrapper grid-page">
     <div class="header-area">
       <Header :back-btn="homeRoute">
         <template #title>
@@ -64,12 +64,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.playlist-cards-area {
-  display: grid;
-  grid-area: main;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 280px;
-}
-</style>

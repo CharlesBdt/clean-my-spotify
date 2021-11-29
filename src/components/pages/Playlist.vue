@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper grid-head-main-footer-area">
+  <div class="wrapper grid-page">
     <div class="header-area">
       <Header :back-btn="playlistsRoute">
         <template #title>
@@ -89,12 +89,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.songs-area {
-  display: grid;
-  grid-area: main;
-  grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
-  grid-auto-rows: 180px;
-}
-</style>

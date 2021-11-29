@@ -5,7 +5,7 @@
         {{ $t.bannerTitle }}
       </p>
     </div>
-    <div class="login-box">
+    <div class="main-area">
       <p class="text-20 pb-5">
         {{ $t.loginText }}
       </p>
@@ -31,18 +31,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.grid-login {
-  grid-template-areas:
-    'head head'
-    'main main';
-  grid-template-rows: 10vh auto;
-}
-
-.login-box {
-  grid-area: main;
-  margin: auto;
-  text-align: center;
-}
-</style>

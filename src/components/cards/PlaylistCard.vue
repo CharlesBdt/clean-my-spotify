@@ -1,8 +1,5 @@
 <template>
-  <div class="playlist-card" @click="
-    $router.push({ name: 'playlist', params: { playlistId: playlist.id } })
-  "
-  >
+  <div class="playlist-card" @click="openPlaylist">
     <img
       :src="playlist.images[0].url"
       width="200"
@@ -25,6 +22,12 @@ export default {
     playlist: {
       type: Object,
       default: () => {}
+    }
+  },
+  methods: {
+    openPlaylist() {
+      let routeData = this.$router.resolve({ name: 'playlist', params: { playlistId: this.playlist.id }});
+      window.open(routeData.href, '_blank');
     }
   }
 };

@@ -28,10 +28,15 @@ const routes = [
   }
 ];
 
+const scrollBehavior = () => {
+  return { left: 0, top: 0 };
+};
+
 const history = createWebHistory();
 const router = createRouter({
   history,
-  routes
+  routes,
+  scrollBehavior
 });
 
 router.beforeEach((to, from, next) => {

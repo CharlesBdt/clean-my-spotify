@@ -1,30 +1,33 @@
 <template>
-  <div class="top-list-card">
-    <div v-for="track in topFiveTracks" :key="track.id">
-      <div class="inline-picture-text">
-        <div class="picture-area">
-          <img
-            :src="track.album.images[0].url"
-            width="50"
-            height="50"
-          >
-        </div>
-        <div class="text-area">
-          SONG: {{ track.name }} <br />
-          ALBUM: {{ track.album.name }}<br />
-          ALBUM RELEASE : {{ track.album.release_date }}<br />
-          ARTIST: {{ getArtistsString(track.artists) }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <TopElementsCard
+    :items="topFiveTracks"
+  >
+    <template #image="{ item }">
+      <img
+        :src="item.album.images[0].url"
+        width="50"
+        height="50"
+      >
+    </template>
+
+    <template #text="{ item }">
+      SONG: {{ item.name }} <br />
+      ALBUM: {{ item.album.name }}<br />
+      ALBUM RELEASE : {{ item.album.release_date }}<br />
+      ARTIST: {{ getArtistsString(item.artists) }}
+    </template>
+  </TopElementsCard>
 </template>
 
 <script>
 import { getArtistsString } from '@/plugins/helper';
+import TopElementsCard from '@/components/cards/TopElementsCard.vue';
 
 export default {
   name: 'UserTopTracksCard',
+  components: {
+    TopElementsCard
+  },
   props: {
     topTracks: {
       type: Object,

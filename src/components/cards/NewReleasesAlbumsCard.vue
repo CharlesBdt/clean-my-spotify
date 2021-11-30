@@ -1,29 +1,32 @@
 <template>
-  <div class="top-list-card">
-    <div v-for="album in newFiveAlbums" :key="album.id">
-      <div class="inline-picture-text">
-        <div class="picture-area">
-          <img
-            :src="album.images[0].url"
-            width="50"
-            height="50"
-          >
-        </div>
-        <div class="text-are">
-          ALBUM: {{ album.name }} <br>
-          ALBUM RELEASE : {{ album.release_date }} <br>
-          ARTIST: {{ getArtistsString(album.artists) }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <TopElementsCard
+    :items="newFiveAlbums"
+  >
+    <template #image="{ item }">
+      <img
+        :src="item.images[0].url"
+        width="50"
+        height="50"
+      >
+    </template>
+
+    <template #text="{ item }">
+      ALBUM: {{ item.name }} <br>
+      ALBUM RELEASE : {{ item.release_date }} <br>
+      ARTIST: {{ getArtistsString(item.artists) }}
+    </template>
+  </TopElementsCard>
 </template>
 
 <script>
 import { getArtistsString } from '@/plugins/helper';
+import TopElementsCard from '@/components/cards/TopElementsCard.vue';
 
 export default {
   name: 'NewReleasesAlbumsCard',
+  components: {
+    TopElementsCard
+  },
   props: {
     newAlbums: {
       type: Object,

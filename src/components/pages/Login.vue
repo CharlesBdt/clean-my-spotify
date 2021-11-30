@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper grid-login">
-    <div class="banner">
+    <div class="banner-area">
       <p class="banner-title">
         {{ $t.bannerTitle }}
       </p>

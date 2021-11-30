@@ -9,6 +9,12 @@ export default {
     homeTitle: 'Welcome',
     logOutBtn: 'Log out',
     accessPlaylistsBtn: 'Check my playlists',
+    songIcon: 'Song name',
+    albumIcon: 'Album name',
+    artistIcon: 'Artist(s)',
+    followersIcon: 'Followers',
+    genresIcon: 'Genres',
+    releaseDateIcon: 'Release Date',
     // Songs
     songs: 'songs',
     createdBy: 'Created by',

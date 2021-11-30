@@ -11,10 +11,24 @@
     </template>
 
     <template #text="{ item }">
-      SONG: {{ item.name }} <br />
-      ALBUM: {{ item.album.name }}<br />
-      ALBUM RELEASE : {{ item.album.release_date }}<br />
-      ARTIST: {{ getArtistsString(item.artists) }}
+      <fa
+        class="clickable"
+        icon="music"
+        color="#218f51"
+        :title="$t.songIcon"
+      /> {{ item.name }} <br />
+      <fa
+        class="clickable"
+        icon="compact-disc"
+        color="#309fb1"
+        :title="$t.albumIcon"
+      /> {{ item.album.name }} ({{ $f.europeanDate(item.album.release_date) }}) <br />
+      <fa
+        class="clickable"
+        icon="user-alt"
+        color="#b45f06"
+        :title="$t.artistIcon"
+      /> {{ getArtistsString(item.artists) }}
     </template>
   </TopElementsCard>
 </template>

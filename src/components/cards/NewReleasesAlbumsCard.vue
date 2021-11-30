@@ -11,9 +11,24 @@
     </template>
 
     <template #text="{ item }">
-      ALBUM: {{ item.name }} <br>
-      ALBUM RELEASE : {{ item.release_date }} <br>
-      ARTIST: {{ getArtistsString(item.artists) }}
+      <fa
+        class="clickable"
+        icon="compact-disc"
+        color="#218f51"
+        :title="$t.albumIcon"
+      /> {{ item.name }} <br />
+      <fa
+        class="clickable"
+        icon="calendar-alt"
+        color="#309fb1"
+        :title="$t.releaseDateIcon"
+      /> {{ $f.europeanDate(item.release_date) }}<br />
+      <fa
+        class="clickable"
+        icon="user-alt"
+        color="#b45f06"
+        :title="$t.artistIcon"
+      /> {{ getArtistsString(item.artists) }}
     </template>
   </TopElementsCard>
 </template>

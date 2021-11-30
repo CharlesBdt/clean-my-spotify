@@ -29,12 +29,15 @@
 
     <div class="list-area">
       <UserTopTracksCard
+        class="mb-5"
         :top-tracks="currentTopTracks"
       />
       <UserTopArtistsCard
+        class="ml-5 mr-5 mb-5"
         :top-artists="currentTopArtists"
       />
       <NewReleasesAlbumsCard
+        class="mb-5"
         :new-albums="newAlbums"
       />
     </div>

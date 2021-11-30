@@ -28,5 +28,19 @@
 .top-list-card {
   border-radius: $border-radius;
   border: 2px solid $green-color;
+  background-color: $green-color;
   display: inline-block;
+}
+
+.no-bg-color {
+  background-color: $white-color !important;
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.top-list-title {
+  color: $white-color;
+}
+
+.top-list-footer {
+  color: $white-color;
 }

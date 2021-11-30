@@ -1,10 +1,14 @@
 <template>
   <TopElementsCard
-    :items="topFiveTracks"
+    :items="newFiveAlbums"
   >
+    <template #title>
+      <h3>{{ $t.newReleasesAlbumTitle }}</h3>
+    </template>
+
     <template #image="{ item }">
       <img
-        :src="item.album.images[0].url"
+        :src="item.images[0].url"
         width="50"
         height="50"
       >
@@ -13,16 +17,18 @@
     <template #text="{ item }">
       <fa
         class="clickable"
-        icon="music"
+        icon="compact-disc"
         color="#218f51"
-        :title="$t.songIcon"
+        :title="$t.albumIcon"
       /> {{ item.name }} <br />
+
       <fa
         class="clickable"
-        icon="compact-disc"
+        icon="calendar-alt"
         color="#309fb1"
-        :title="$t.albumIcon"
-      /> {{ item.album.name }} ({{ $f.europeanDate(item.album.release_date) }}) <br />
+        :title="$t.releaseDateIcon"
+      /> {{ $f.europeanDate(item.release_date) }}<br />
+
       <fa
         class="clickable"
         icon="user-alt"
@@ -38,20 +44,20 @@ import { getArtistsString } from '@/plugins/helper';
 import TopElementsCard from '@/components/cards/TopElementsCard.vue';
 
 export default {
-  name: 'UserTopTracksCard',
+  name: 'NewReleasesAlbumsCard',
   components: {
     TopElementsCard
   },
   props: {
-    topTracks: {
+    newAlbums: {
       type: Object,
       default: () => {}
     }
   },
   computed: {
-    topFiveTracks() {
-      return this.topTracks.items ? this.topTracks.items.slice(0, 5) : [];
-    },
+    newFiveAlbums() {
+      return this.newAlbums.slice(0, 5);
+    }
   },
   methods: {
     getArtistsString

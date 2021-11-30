@@ -7,5 +7,9 @@ export default {
 
   europeanDate(date) {
     return moment(date).format('DD/MM/YYYY');
+  },
+
+  numberSpacer(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   }
 };

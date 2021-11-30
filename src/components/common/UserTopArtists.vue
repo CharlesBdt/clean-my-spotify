@@ -16,16 +16,14 @@
 
     <template #text="{ item }">
       <fa
-        class="clickable"
+        class="clickable green-color"
         icon="user-alt"
-        color="#218f51"
         :title="$t.artistIcon"
       /> {{ item.name }} <br />
 
       <fa
-        class="clickable"
+        class="clickable blue-color"
         icon="chart-line"
-        color="#309fb1"
         :title="$t.followersIcon"
       /> {{ $f.numberSpacer(item.followers.total) }} {{ $t.followersText }}
       <span class="tooltip">({{ $t.popularityText }} {{ item.popularity }})
@@ -37,9 +35,8 @@
       </span><br />
 
       <fa
-        class="clickable"
+        class="clickable brown-color"
         icon="th-list"
-        color="#b45f06"
         :title="$t.genresIcon"
       /> {{ getGenresString(item.genres) }}
     </template>

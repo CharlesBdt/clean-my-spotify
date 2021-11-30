@@ -3,7 +3,7 @@
     <div class="top-list-title pa-3">
       <slot name="title" />
     </div>
-    <div class="no-bg-color pl-5 pr-5 pb-5 pt-3">
+    <div class="no-bg-color pl-5 pr-5 pt-3">
       <div v-for="item in items" :key="item.id">
         <div class="inline-picture-text pb-3 pt-3">
           <div class="picture-area">
@@ -15,9 +15,13 @@
         </div>
       </div>
     </div>
-    <div class="top-list-footer pt-1 pb-1">
-      <span class="clickable">
-        {{ $t.seeMoreText }}
+    <div class="top-list-footer no-bg-color pt-1 pb-3">
+      <span class="clickable pr-5">
+        <fa
+          class="clickable"
+          icon="angle-double-right"
+        />
+        <em><b>{{ $t.seeMoreText }}</b></em>
       </span>
     </div>
   </div>

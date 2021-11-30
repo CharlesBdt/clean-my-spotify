@@ -16,23 +16,20 @@
 
     <template #text="{ item }">
       <fa
-        class="clickable"
+        class="clickable green-color"
         icon="compact-disc"
-        color="#218f51"
         :title="$t.albumIcon"
       /> {{ item.name }} <br />
 
       <fa
-        class="clickable"
+        class="clickable blue-color"
         icon="calendar-alt"
-        color="#309fb1"
         :title="$t.releaseDateIcon"
       /> {{ $f.europeanDate(item.release_date) }}<br />
 
       <fa
-        class="clickable"
+        class="clickable brown-color"
         icon="user-alt"
-        color="#b45f06"
         :title="$t.artistIcon"
       /> {{ getArtistsString(item.artists) }}
     </template>

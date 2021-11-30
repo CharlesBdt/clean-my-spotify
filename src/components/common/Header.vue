@@ -2,10 +2,9 @@
   <div class="mt-5">
     <slot name="home">
       <fa
-        class="clickable"
+        class="clickable green-color"
         icon="music"
         size="lg"
-        color="#218f51"
         @click="$router.push({ name: homeRoute })"
       />
     </slot>

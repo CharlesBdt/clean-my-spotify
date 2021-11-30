@@ -34,7 +34,6 @@
 
 .no-bg-color {
   background-color: $white-color !important;
-  border-radius: 0 0 $border-radius $border-radius;
 }
 
 .top-list-title {
@@ -42,5 +41,7 @@
 }
 
 .top-list-footer {
-  color: $white-color;
+  border-radius: 0 0 $border-radius $border-radius;
+  color: $green-color;
+  text-align: right;
 }

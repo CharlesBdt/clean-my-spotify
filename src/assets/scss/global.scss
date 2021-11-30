@@ -12,8 +12,26 @@ $green-color: #218f51;
 $white-color: #fff;
 $black-color: #000;
 $red-color: #b64646;
+$blue-color: #309fb1;
+$brown-color: #b45f06;
 $border-radius: 25px;
 $button-padding: 16px;
+
+.green-color {
+  color: $green-color;
+}
+
+.white-color {
+  color: $white-color;
+}
+
+.blue-color {
+  color: $blue-color;
+}
+
+.brown-color {
+  color: $brown-color;
+}
 
 /* RESET */
 * {

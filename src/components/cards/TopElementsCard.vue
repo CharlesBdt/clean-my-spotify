@@ -16,12 +16,11 @@
       </div>
     </div>
     <div class="top-list-footer no-bg-color pt-1 pb-3">
-      <span class="clickable pr-5">
+      <span class="clickable pr-5" @click="triggerSeeMore">
         <fa
           class="clickable"
           icon="angle-double-right"
-        />
-        <em><b>{{ $t.seeMoreText }}</b></em>
+        /> <em><b>{{ $t.seeMoreText }}</b></em>
       </span>
     </div>
   </div>
@@ -34,6 +33,12 @@ export default {
     items: {
       type: Object,
       default: () => {}
+    }
+  },
+  emits: ['seeMore'],
+  methods: {
+    triggerSeeMore() {
+      this.$emit('seeMore');
     }
   }
 };

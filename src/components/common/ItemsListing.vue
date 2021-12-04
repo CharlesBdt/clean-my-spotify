@@ -36,13 +36,13 @@
 export default {
   name: 'ItemsListing',
   props: {
+    items: {
+      type: Object,
+      default: () => {}
+    },
     isDisplayed: {
       type: Boolean,
       default: false
-    },
-    items: {
-      type: Array,
-      default: () => {}
     }
   },
   emits: ['closeModal'],

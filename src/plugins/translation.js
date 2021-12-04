@@ -27,8 +27,10 @@ export default {
     addedAt: 'Added',
     noPreviewAvailable: 'The song preview is not available',
     previewBrowserError: 'Your browser does not support the audio element',
+    fromText: 'from',
     // Playlists
     playlistsTitle: 'Playlists',
+    noPlaylistName: 'N/A',
     // Navigation
     previousBtn: 'Previous',
     nextBtn: 'Next',

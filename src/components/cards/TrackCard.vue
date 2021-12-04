@@ -1,11 +1,19 @@
 <template>
   <div class="track-card">
     <div class="mt-2 mb-2">
-      <p class="text-18">
-        {{ track.track.name }}
+      <p class="text-18 mb-1">
+        <fa
+          class="clickable green-color"
+          icon="music"
+          :title="$t.songIcon"
+        /> <b>{{ track.track.name }}</b>
       </p>
       <p>
-        <b> from </b>
+        <fa
+          class="clickable brown-color"
+          icon="user-alt"
+          :title="$t.artistIcon"
+        />
         {{ track.track.album.artists[0].name }}
       </p>
     </div>

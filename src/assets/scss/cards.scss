@@ -9,12 +9,12 @@
 .playlist-card {
   cursor: pointer;
   border-radius: 0 0 $border-radius $border-radius;
-  width: 200px;
-  height: 260px;
+  width: 204px;
+  height: 235px;
   margin: auto;
   text-align: center;
-  background-color: $green-color;
-  color: $white-color;
+  border: 2px solid $green-color;
+  color: $green-color;
 }
 
 .track-card {

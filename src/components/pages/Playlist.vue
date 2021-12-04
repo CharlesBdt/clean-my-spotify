@@ -4,7 +4,9 @@
       <Header :back-btn="playlistsRoute">
         <template #title>
           <div class="header-text mt-5">
-            <b>{{ playlist.name }}</b> - {{ totalSongs }} {{ $t.songs }}
+            <b v-if="playlist.name">{{ playlist.name }}</b>
+            <b v-if="!playlist.name">{{ $t.noPlaylistName }}</b>
+            - {{ totalSongs }} {{ $t.songs }}
           </div>
           <p class="header-subtext">
             <em>{{ $t.createdBy }} {{ playlistOwner }}</em>

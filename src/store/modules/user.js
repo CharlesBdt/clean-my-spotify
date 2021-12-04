@@ -37,6 +37,14 @@ const actions = {
     commit('setUserTopItems', [userTopItems, type]);
   },
 
+  async getCurrentPlayingTrack({ commit }, payload) {
+    let currentPlayingTrackUrl = `${URL.CURRENT_PLAYING_TRACK}`;
+
+    const currentTrack = await API.get(currentPlayingTrackUrl);
+
+    console.log('current', currentTrack);
+  },
+
   resetState({ commit }) {
     commit('resetState');
   }

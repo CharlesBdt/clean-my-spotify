@@ -52,6 +52,8 @@ VUE_APP_SPOTIFY_AUTHORIZE_ENDPOINT=
 # Spotify Authorize Endpoint is from the doc with value "https://accounts.spotify.com/authorize"
 ```
 
+For each new endpoint you want to add, don't forget to add the required scopes into the `store/modules/auth.js` file.
+
 ## Firebase Hosting
 
 Create your .env.production.local file for hosting with same content as above.

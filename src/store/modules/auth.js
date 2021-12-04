@@ -10,7 +10,8 @@ const getDefaultState = () => ({
     'playlist-modify-private',
     'playlist-read-private',
     'playlist-read-collaborative',
-    'user-top-read'
+    'user-top-read',
+    'user-read-currently-playing'
   ],
   scopes_separator: '%20'
 });

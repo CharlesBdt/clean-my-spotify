@@ -73,12 +73,14 @@ export default {
     this.getUserTopItems('artists');
     this.getUserTopItems('tracks');
     this.getNewReleases();
+    this.getCurrentPlayingTrack();
   },
   methods: {
     ...mapActions({
       getCurrentUser: 'user/getCurrentUser',
       getUserTopItems: 'user/getUserTopItems',
       getNewReleases: 'album/getNewReleases',
+      getCurrentPlayingTrack: 'user/getCurrentPlayingTrack',
       logOutUser: 'auth/logOutUser'
     })
   }

@@ -50,6 +50,10 @@ $button-padding: 16px;
   border: solid 1px blue;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /*
 **
 ** STYLE
@@ -121,6 +125,10 @@ $button-padding: 16px;
   color: $red-color;
 }
 
+.btn-bg-white {
+  background-color: $white-color;
+}
+
 /* TEXT */
 .banner-title {
   font-size: 30px;
@@ -172,4 +180,8 @@ $button-padding: 16px;
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.right-position {
+  text-align: right;
 }

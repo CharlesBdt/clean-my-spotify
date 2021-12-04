@@ -29,7 +29,8 @@
   grid-template-rows: 10vh auto;
 }
 
-.grid-page {
+.grid-page,
+.grid-listing {
   grid-template-areas:
     'head'
     'main'
@@ -38,7 +39,8 @@
 
 /* Head area */
 
-.banner-area {
+.banner-area,
+.listing-header-area {
   grid-area: head;
   margin: auto;
   text-align: center;
@@ -75,11 +77,21 @@
   grid-auto-rows: 280px;
 }
 
+.listing-content-area {
+  grid-area: main;
+  display: grid;
+  text-align: left;
+}
+
 /* Footer area */
 
 .footer-area {
   grid-area: footer;
   text-align: center;
+}
+
+.listing-footer-area {
+  grid-area: footer;
 }
 
 /* Diverse area */
@@ -96,4 +108,8 @@
 .inline-picture-text {
   display: flex;
   align-items: center;
+}
+
+.inline-block {
+  display: inline-block;
 }

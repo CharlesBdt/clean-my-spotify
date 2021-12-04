@@ -20,7 +20,7 @@
 
     <div class="main-area">
       <button
-        class="btn btn-round btn-lg btn-ghost-green"
+        class="btn btn-round btn-lg btn-ghost-green mb-5"
         @click="$router.push({ name: 'playlists' })"
       >
         {{ $t.accessPlaylistsBtn }}
@@ -28,16 +28,16 @@
     </div>
 
     <div class="list-area">
-      <UserTopTracksCard
-        class="mb-5"
+      <UserTopTracks
+        class="ml-3 mr-3 mb-5"
         :top-tracks="currentTopTracks"
       />
-      <UserTopArtistsCard
-        class="ml-5 mr-5 mb-5"
+      <UserTopArtists
+        class="ml-3 mr-3 mb-5"
         :top-artists="currentTopArtists"
       />
-      <NewReleasesAlbumsCard
-        class="mb-5"
+      <NewReleasesAlbums
+        class="ml-3 mr-3 mb-5"
         :new-albums="newAlbums"
       />
     </div>
@@ -48,17 +48,17 @@
 import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
-import UserTopTracksCard from '@/components/common/UserTopTracks.vue';
-import UserTopArtistsCard from '@/components/common/UserTopArtists.vue';
-import NewReleasesAlbumsCard from '@/components/common/NewReleasesAlbums.vue';
+import UserTopTracks from '@/components/common/UserTopTracks.vue';
+import UserTopArtists from '@/components/common/UserTopArtists.vue';
+import NewReleasesAlbums from '@/components/common/NewReleasesAlbums.vue';
 
 export default {
   name: 'Home',
   components: {
     Header,
-    UserTopTracksCard,
-    UserTopArtistsCard,
-    NewReleasesAlbumsCard
+    UserTopTracks,
+    UserTopArtists,
+    NewReleasesAlbums
   },
   computed: {
     ...mapState({

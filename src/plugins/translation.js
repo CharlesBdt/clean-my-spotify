@@ -32,6 +32,7 @@ export default {
     // Navigation
     previousBtn: 'Previous',
     nextBtn: 'Next',
-    backBtn: 'Back'
+    backBtn: 'Back',
+    closeBtn: 'Close'
   }
 };

@@ -1,18 +1,34 @@
 <template>
   <div v-if="isDisplayed" class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          This is the default title!
+    <div class="modal grid-listing">
+      <div class="modal-header listing-header-area pa-3 ma-0">
+        <slot name="title">
         </slot>
-        <button
-          type="button"
-          class="btn-close"
-          @click="closeModal"
-        >
-          x
-        </button>
-      </header>
+      </div>
+
+      <div class="listing-content-area modal-content pa-3">
+        <div v-for="item in items" :key="item.id">
+          <div class="inline-picture-text pb-3 pt-3">
+            <div class="picture-area">
+              <slot name="image" :item="item" />
+            </div>
+            <div class="text-area ml-3">
+              <slot name="text" :item="item" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-footer-area modal-footer right-position pa-3 pr-5">
+        <slot name="button">
+          <button
+            class="btn btn-round btn-sm btn-ghost-red btn-bg-white"
+            @click="closeModal"
+          >
+            {{ $t.closeBtn }}
+          </button>
+        </slot>
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +40,10 @@ export default {
     isDisplayed: {
       type: Boolean,
       default: false
+    },
+    items: {
+      type: Array,
+      default: () => {}
     }
   },
   emits: ['closeModal'],
@@ -34,51 +54,3 @@ export default {
   }
 };
 </script>
-
-<style>
-  .modal-backdrop {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .modal-header {
-    padding: 15px;
-    display: flex;
-  }
-
-  .modal-header {
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
-
-  .btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
-</style>

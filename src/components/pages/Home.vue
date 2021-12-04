@@ -48,9 +48,9 @@
 import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
-import UserTopTracks from '@/components/common/UserTopTracks.vue';
-import UserTopArtists from '@/components/common/UserTopArtists.vue';
-import NewReleasesAlbums from '@/components/common/NewReleasesAlbums.vue';
+import UserTopTracks from '@/components/specific/UserTopTracks.vue';
+import UserTopArtists from '@/components/specific/UserTopArtists.vue';
+import NewReleasesAlbums from '@/components/specific/NewReleasesAlbums.vue';
 
 export default {
   name: 'Home',

@@ -7,6 +7,7 @@ import filters from '@/plugins/filters.js';
 import '@/assets/scss/cards.scss';
 import '@/assets/scss/global.scss';
 import '@/assets/scss/grids.scss';
+import '@/assets/scss/modals.scss';
 import '@/assets/scss/spacing.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';

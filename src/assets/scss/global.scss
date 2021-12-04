@@ -50,15 +50,21 @@ $button-padding: 16px;
   border: solid 1px blue;
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
 /*
 **
 ** STYLE
 **
 */
+
+/* GENERAL */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.no-bg-color {
+  background-color: $white-color !important;
+}
 
 /* BUTTON */
 .clickable {
@@ -123,10 +129,6 @@ body.modal-open {
 .btn-ghost-red {
   @include button-ghost($red-color);
   color: $red-color;
-}
-
-.btn-bg-white {
-  background-color: $white-color;
 }
 
 /* TEXT */

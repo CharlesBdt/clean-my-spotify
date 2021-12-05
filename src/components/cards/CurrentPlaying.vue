@@ -9,15 +9,15 @@
       /> <em class="red-color">{{ $t.adCurrentPlaying }}</em>
     </div>
 
-    <div v-if="currentPlaying.item && currentPlaying.currently_playing_type !== 'ad'">
+    <div v-if="currentPlaying.currently_playing_type !== 'ad' && currentPlaying.item">
       <div class="inline-picture-text pb-3 pt-3 clickable">
         <div class="picture-area">
           <img
             :src="currentPlaying.item.album.images[0].url"
             width="50"
             height="50"
-            class="circle-image"
-            :title="ici"
+            class="circle-image rotate-element"
+            :title="$t.trackCurrentPlaying"
           >
         </div>
         <div class="text-area ml-3">
@@ -55,6 +55,29 @@ export default {
     ...mapState({
       currentPlaying: (state) => state.user.currentPlaying
     })
+  },
+  watch: {
+    'currentPlaying.item': {
+      handler() {
+        if (this.currentPlaying.currently_playing_type !== 'ad' && this.currentPlaying.item) {
+          let timeLeft = this.currentPlaying.item.duration_ms - this.currentPlaying.progress_ms;
+
+          // Trigger the function that get current playing track after timeout
+          // Time is calculated from total song duration minus current progress
+          setTimeout(() => {
+            this.getCurrentPlayingTrack();
+          }, timeLeft);
+        }
+        if (this.currentPlaying.currently_playing_type === 'ad') {
+          // If the current track is an ad, trigger the function every 10s
+          setTimeout(() => {
+            this.getCurrentPlayingTrack();
+          }, 10000);
+        }
+      },
+      deep: true,
+      immediate: true
+    }
   },
   created() {
     this.getCurrentPlayingTrack();

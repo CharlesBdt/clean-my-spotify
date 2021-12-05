@@ -5,7 +5,8 @@ import URL from '@/api/config';
 const getDefaultState = () => ({
   currentUser: [],
   currentTopArtists: [],
-  currentTopTracks: []
+  currentTopTracks: [],
+  currentPlaying: {}
 });
 
 const namespaced = true;
@@ -42,7 +43,7 @@ const actions = {
 
     const currentTrack = await API.get(currentPlayingTrackUrl);
 
-    console.log('current', currentTrack);
+    commit('setCurrentPlayingTrack', currentTrack);
   },
 
   resetState({ commit }) {
@@ -67,6 +68,10 @@ const mutations = {
     const stateVariable = `currentTop${payload[1]}`;
 
     state[stateVariable] = payload[0].data;
+  },
+
+  setCurrentPlayingTrack(state, payload) {
+    state.currentPlaying = payload.data;
   }
 };
 

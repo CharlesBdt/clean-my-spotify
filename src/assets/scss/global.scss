@@ -33,6 +33,10 @@ $button-padding: 16px;
   color: $brown-color;
 }
 
+.red-color {
+  color: $red-color;
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -159,6 +163,10 @@ body.modal-open {
   font-size: 20px;
 }
 
+.text-area {
+  text-align: left;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -187,4 +195,8 @@ body.modal-open {
 
 .right-position {
   text-align: right;
+}
+
+.circle-image {
+  border-radius: $border-radius;
 }

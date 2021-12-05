@@ -2,6 +2,7 @@ export default {
   en: {
     // General
     bannerTitle: 'Spotify Adventure',
+    adCurrentPlaying: 'An ad is currently being played',
     // Login page
     loginText: 'Log in with your Spotify account to start the adventure',
     signInBtn: 'Take me in !',

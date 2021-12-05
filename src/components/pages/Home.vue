@@ -19,6 +19,8 @@
     </div>
 
     <div class="main-area">
+      <CurrentPlaying class="mb-5" />
+
       <button
         class="btn btn-round btn-lg btn-ghost-green mb-5"
         @click="$router.push({ name: 'playlists' })"
@@ -48,14 +50,16 @@
 import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import Header from '@/components/common/Header.vue';
-import UserTopTracks from '@/components/specific/UserTopTracks.vue';
-import UserTopArtists from '@/components/specific/UserTopArtists.vue';
-import NewReleasesAlbums from '@/components/specific/NewReleasesAlbums.vue';
+import CurrentPlaying from '@/components/cards/CurrentPlaying.vue';
+import UserTopTracks from '@/components/cards/UserTopTracks.vue';
+import UserTopArtists from '@/components/cards/UserTopArtists.vue';
+import NewReleasesAlbums from '@/components/cards/NewReleasesAlbums.vue';
 
 export default {
   name: 'Home',
   components: {
     Header,
+    CurrentPlaying,
     UserTopTracks,
     UserTopArtists,
     NewReleasesAlbums
@@ -73,14 +77,12 @@ export default {
     this.getUserTopItems('artists');
     this.getUserTopItems('tracks');
     this.getNewReleases();
-    this.getCurrentPlayingTrack();
   },
   methods: {
     ...mapActions({
       getCurrentUser: 'user/getCurrentUser',
       getUserTopItems: 'user/getUserTopItems',
       getNewReleases: 'album/getNewReleases',
-      getCurrentPlayingTrack: 'user/getCurrentPlayingTrack',
       logOutUser: 'auth/logOutUser'
     })
   }

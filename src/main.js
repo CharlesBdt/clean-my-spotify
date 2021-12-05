@@ -10,11 +10,11 @@ import '@/assets/scss/grids.scss';
 import '@/assets/scss/modals.scss';
 import '@/assets/scss/spacing.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight, faAd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 // Manually load the icon used
-library.add(faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight);
+library.add(faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight, faAd);
 
 const app = createApp(App);
 

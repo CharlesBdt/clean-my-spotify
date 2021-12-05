@@ -65,7 +65,7 @@ When done, run these commands :
 ```sh
 yarn add -g firebase-tools
 firebase login
-firebase init
+firebase init #skip if it has already been done
 firebase deploy
 ```
 

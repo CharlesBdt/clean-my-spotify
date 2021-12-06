@@ -11,12 +11,12 @@
 
     <div v-if="currentPlaying.currently_playing_type !== 'ad' && currentPlaying.item">
       <div class="inline-picture-text pb-3 pt-3 clickable">
-        <div class="picture-area">
+        <div class="picture-area circle-image">
           <img
             :src="currentPlaying.item.album.images[0].url"
             width="50"
             height="50"
-            class="circle-image rotate-element"
+            class="rotate-element"
             :title="$t.trackCurrentPlaying"
           >
         </div>

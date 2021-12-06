@@ -63,7 +63,7 @@ Then prepare for production [here](#compiles-and-minifies-for-production)
 When done, run these commands :
 
 ```sh
-yarn add -g firebase-tools
+yarn global add firebase-tools
 firebase login
 firebase init #skip if it has already been done
 firebase deploy

@@ -7,6 +7,8 @@
   - [Prerequisites](#prerequisites)
   - [Install dependencies](#install-dependencies)
 - [Formatting](#formatting)
+  - [Git commitizen](#git-commitizen)
+  - [Plugins](#plugins)
 - [Spotify Developer](#spotify-developer)
 - [Best practices](#best-practices)
 - [Deploy](#deploy)

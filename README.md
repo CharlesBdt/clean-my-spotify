@@ -19,8 +19,8 @@
 
 ## App information
 
-- App name : Party Blind Test
-- Description : Music blind test to play solo or with friends
+- App name : Spotify Adventure
+- Description : Explore your Spotify top tracks / artists / playlists etc
 - App links :
   - [Repo](https://github.com/CharlesCharly/spotify-adventure)
   - [Live](https://spotify-adventure.web.app/)
@@ -58,7 +58,9 @@ Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 ## Formatting
 
-- Install [commitizen](http://commitizen.github.io/cz-cli/) globally to have consistent commits.\
+### Git commitizen
+
+Install [commitizen](http://commitizen.github.io/cz-cli/) globally to have consistent commits.\
 How did we make our repo [commitizen friendly](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly) ?
 
 ```sh
@@ -71,14 +73,16 @@ git cz
 
 Read more about `git commitizen` use, in the [Best practices section](#best-practices)
 
-- To use formatting on VS Code please install these plugins : [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).\
+### Plugins
+
+To use formatting on VS Code please install these plugins : [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).\
 Follow Prettier extension's instructions to setup `format on save` for ease of use.
 
 ```sh
 yarn lint
 ```
 
-- For VueJS tooling into VS Code, you can install [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur).
+For VueJS tooling into VS Code, you can install [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur).
 
 ## Spotify Developer
 
@@ -90,7 +94,7 @@ When done, click on the created app to access the settings.
 
 ## Best practices
 
-- For commit and repository consistency, please use :
+For commit and repository consistency, please use :
 
 ```sh
 git cz # instead of 'git commit'
@@ -98,7 +102,7 @@ git cz # instead of 'git commit'
 
 You'll be prompted to fill in any required fields and your commit messages will be formatted according to the standards defined by project maintainers.
 
-- Respect the [git-flow process](https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html) as much as possible :
+Respect the [git-flow process](https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html) as much as possible :
 
 - Create a branch for each features - eg. `feature(user)/create-profil` or `fix(room): update room name`
 - Commit with `giz cz`

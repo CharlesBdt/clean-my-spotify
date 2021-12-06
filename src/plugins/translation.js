@@ -4,6 +4,7 @@ export default {
     bannerTitle: 'Spotify Adventure',
     adCurrentPlaying: 'An ad is currently being played !',
     trackCurrentPlaying: 'Currently being played',
+    githubRepo: 'Check GitHub repo',
     // Login page
     loginText: 'Log in with your Spotify account to start the adventure',
     signInBtn: 'Take me in !',

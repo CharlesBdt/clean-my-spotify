@@ -11,10 +11,11 @@ import '@/assets/scss/modals.scss';
 import '@/assets/scss/spacing.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight, faAd } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 // Manually load the icon used
-library.add(faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight, faAd);
+library.add(faSkiing, faExclamationTriangle, faMusic, faCompactDisc, faUserAlt, faChartLine, faCalendarAlt, faThList, faAngleDoubleRight, faAd, faGithub);
 
 const app = createApp(App);
 

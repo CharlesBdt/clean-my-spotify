@@ -14,6 +14,12 @@
         :title="$t.githubRepo"
         @click="githubRepo"
       />
+      <fa
+        class="clickable green-color ml-5"
+        icon="search"
+        size="lg"
+        @click="$router.push({ name: 'search' })"
+      />
     </slot>
   </div>
   <div class="mt-3">

@@ -34,6 +34,10 @@ export default {
     // Playlists
     playlistsTitle: 'Playlists',
     noPlaylistName: 'N/A',
+    // Information
+    infoTitle: 'Information',
+    // Search
+    searchTitle: 'Search',
     // Navigation
     previousBtn: 'Previous',
     nextBtn: 'Next',

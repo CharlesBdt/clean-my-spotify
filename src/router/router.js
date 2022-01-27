@@ -4,6 +4,8 @@ import Login from '@/components/pages/Login.vue';
 import Home from '@/components/pages/Home.vue';
 import Playlist from '@/components/pages/Playlist.vue';
 import Playlists from '@/components/pages/Playlists.vue';
+import Search from '@/components/pages/Search.vue';
+import Info from '@/components/pages/Info.vue';
 
 const routes = [
   {
@@ -25,6 +27,16 @@ const routes = [
     path: '/playlists',
     name: 'playlists',
     component: Playlists
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  },
+  {
+    path: '/info/:itemId',
+    name: 'info',
+    component: Info
   }
 ];
 

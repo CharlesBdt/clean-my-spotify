@@ -22,7 +22,7 @@
       <CurrentPlaying class="mb-5" />
 
       <button
-        class="btn btn-round btn-lg btn-ghost-green mb-5"
+        class="btn btn-round btn-lg btn-ghost-green mt-5 mb-5"
         @click="$router.push({ name: 'playlists' })"
       >
         {{ $t.accessPlaylistsBtn }}

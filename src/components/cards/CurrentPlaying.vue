@@ -2,7 +2,7 @@
   <div>
     <div v-if="currentPlaying.currently_playing_type === 'ad'">
       <fa
-        class="clickable red-color"
+        class="red-color"
         icon="ad"
         size="lg"
         :title="$t.songIcon"
@@ -10,7 +10,7 @@
     </div>
 
     <div v-if="currentPlaying.currently_playing_type !== 'ad' && currentPlaying.item">
-      <div class="inline-picture-text pb-3 pt-3 clickable">
+      <div class="inline-picture-text pb-3 pt-3 clickable" @click="redirectToPageInfo">
         <div class="picture-area circle-image">
           <img
             :src="currentPlaying.item.album.images[0].url"
@@ -39,6 +39,12 @@
             :title="$t.artistIcon"
           /> {{ getArtistsString(currentPlaying.item.artists) }}
         </div>
+      </div>
+
+      <div>
+        <span class="green-color">
+          <em>Click on the song for more info !</em>
+        </span>
       </div>
     </div>
   </div>
@@ -86,7 +92,10 @@ export default {
     getArtistsString,
     ...mapActions({
       getCurrentPlayingTrack: 'user/getCurrentPlayingTrack',
-    })
+    }),
+    redirectToPageInfo() {
+      this.$router.push({ name : 'info', params: { itemId: this.currentPlaying.item.id}});
+    }
   }
 };
 </script>
